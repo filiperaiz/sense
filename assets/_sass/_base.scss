@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+body,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol {
+    font-family: 'Roboto', sans-serif !important;
+    text-rendering: optimizeLegibility;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #eeeeee;
+}
+
+$red: #ec1c24;
+
+a:hover {
+    text-decoration: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+.btn{
+	box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+	text-transform: uppercase;
+}

@@ -1,0 +1,108 @@
+<div ng-include="'includes/header-config.html'"></div>
+
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div class="widget-card">
+                <div class="widget-header">
+                    <h2 class="title">Edição de Usuário</h2>
+                </div>
+                <div class="widget-body">
+                    <form name="newuserForm" action="" class="form-app">
+                        <div class="box-card-form">
+                            <div class="box-header">
+                                <span class="icon-header glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <h2 class="title">Usuário</h2>
+                            </div>
+                            <div class="box-body box-form">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="label-form" for="">Nome</label>
+                                            <input ng-model="user.name" ng-required="true" type="text" class="form-control" id="" placeholder="Insira o nome do usuário">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label-form" for="">Email</label>
+                                                    <input ng-model="user.type" ng-required="true" type="email" class="form-control" id="" placeholder="Insira o email do usuário">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="label-form" for="">Telefone</label>
+                                                    <input type="tel" ng-required="true" class="form-control" id="" placeholder="Insira o telefone do usuário">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-card-form">
+                            <div class="box-header">
+                                <span class="icon-header glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <h2 class="title">Perfil</h2>
+                            </div>
+                            <div class="box-body box-form">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="label-form" for="">Perfil do usuário</label>
+                                            <input type="text" class="form-control" id="" placeholder="Insira o perfil do usuário">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="label-form" for="">Senha</label>
+                                            <input type="password" class="form-control" id="" placeholder="Insira sua senha">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="label-form" for="">Confirmar Senha</label>
+                                            <input type="password" class="form-control" id="" placeholder="Confirme sua senha">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="label-form" for="">Grupos</label>
+                                            <div class="input-group-icon">
+                                                <span class="icon-right glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                                                <select class="form-control select">
+                                                    <option>Selecione uma opção</option>
+                                                    <option>Financeiro</option>
+                                                    <option>Administração</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="label-form" for="">Permissões</label>
+                                            <div class="input-group-icon">
+                                                <span class="icon-right glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                                                <select class="form-control select" name="type" ng-model="user.model" ng-required="true" ng-options=" model.name for model in models">
+                                                  <option value="">Selecione um tipo</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-app">
+                        <div class="box-actions" ng-show="user.name">
+                            <button type="file" class="btn btn-danger">Cancelar</button>
+                            <button class="btn btn-info" ng-disabled="newuserForm.$invalid" ng-click="addUser(user)">Confirmar</button>
+                            <br> {{user}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
