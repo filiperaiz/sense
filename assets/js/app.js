@@ -1,5 +1,5 @@
  // definindo o modulo para executar o app
-var app = angular .module('myapp', ['ui.router']);
+var app = angular .module('myapp', ['ui.router', 'starter.services']);
 
 
 // Definindo Rotas
