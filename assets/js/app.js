@@ -33,6 +33,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/users/new-user',
       templateUrl: 'views/new-user.html',
       controller: 'usersController'
+    })
+
+    .state('edit-user', {
+      url: '/users/edit-user/:email',
+      templateUrl: 'views/new-user.html',
+      controller: 'usersController'
     });
     
     // Utilizando o HTML5 History API

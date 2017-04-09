@@ -1,51 +1,12 @@
 // definido os controllers 
 
-app.controller('homeController', function($scope, $location, UserService) {
+app.controller('homeController', function($scope, $location) {
     $scope.message = 'tela inicial';
 
 
     // NÃO SEI ONDE TU VAI FAZER AS OPERAÇÕES CRUD DO USER... VOU FAZR AQUI NA HOME E TU COLOCA ONDE DEVE SER
 
     // CRIEI UM SERVICE QUE FAZ AS OPERAÇÕES CRUD
-
-
-    //CRIANDO UM USUARIO
-    var user1 = {
-        name: "Adriano",
-        email: "adrianootirb@gmail.com"
-    }
-
-    var user2 = {
-        name: "Felipe",
-        email: "felipegay@gmail.com"
-    }
-
-    var user3 = {
-        name: "Laysa",
-        email: "laysa_coracao@gmail.com"
-    }
-
-    // INSERIR OS DOIS ELEMENTOS NO LOCALESTORAGE
-    UserService.setUser(user1);
-    UserService.setUser(user2);
-    UserService.setUser(user3);
-
-    console.log("Dados no storage");
-    console.log(UserService.getLocalStorageUsers()); // VAI VER OS TRÊS ELEMENTOS NO CONSOLE
-
-
-
-
-    //VOU DELETAR O USUARIO DO LOCAL STORAGE
-    console.log("Deletando o usuario 2");
-    UserService.removeUser('felipegay@gmail.com');
-
-    console.log(UserService.getLocalStorageUsers()); // O USER FILIPE DELETADO | VAI VER SOMENTE O ADRIANO S2 LAYSA NO CONSOLE
-
-
-    
-
-
     $scope.sendModal = function() {
         $('#modal-sign').modal('hide');
     };
@@ -61,37 +22,35 @@ app.controller('instanceController', function($scope) {
 });
 
 
-app.controller('usersController', function($scope) {
+app.controller('usersController', function($state, $scope, UserService, $stateParams) {
 
-    $scope.saved = localStorage.getItem('users');
-    $scope.users = (localStorage.getItem('users') !== null) ? JSON.parse($scope.saved) : [];
+    if(typeof $stateParams.email === "undefined"){
+        $scope.user = {};
+    }else{
+        $scope.user = UserService.getUser($stateParams.email)
+    }
 
-    $scope.models = [
-        { name: 'admin', id: '1' },
-        { name: 'root', id: '2' },
-        { name: 'write', id: '3' },
-        { name: 'read', id: '4' }
-    ];
-
+    $scope.users = UserService.getAllUsers().users;
 
     // adicionar usuario
-    $scope.addUser = function(user) {
-        $scope.users.push(angular.copy(user));
-        delete $scope.user;
-
-        $scope.newuserForm.$setPristine();
-
-        localStorage.setItem('users', JSON.stringify($scope.users));
-
+    $scope.saveUser = function() {
+        if(typeof $stateParams.email === "undefined"){ // criando
+            UserService.setUser($scope.user);   
+            $state.go("users");
+        }else{// alterando
+            UserService.updateUser($scope.user);   
+            $state.go("users");
+        }
     };
 
-    // deletar usuario
-    $scope.deleteUser = function(users) {
-        $scope.users = users.filter(function(user) {
-            if (!user.selected) return user;
-        });
+    $scope.cancel = function(){
+        $state.go("users");
+    }
 
-        localStorage.setItem('users', JSON.stringify($scope.users));
+    // deletar usuario
+    $scope.deleteUser = function(email) {
+        UserService.removeUser(email);
+        $scope.users = UserService.getAllUsers().users;
     };
 
 

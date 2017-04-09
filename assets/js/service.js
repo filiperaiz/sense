@@ -8,6 +8,28 @@ angular.module('starter.services', [])
         this.setLocalStorageUsers(users_storage);
     };
 
+    var getAllUsers = function() {
+        var users_storage = this.getLocalStorageUsers();
+        return users_storage;
+    };
+
+    var getUser = function(email) {
+        var users_storage = this.getLocalStorageUsers();
+        var user = {};
+        for (var i = 0; i < users_storage.users.length; i++){
+            if(users_storage.users[i].email==email){
+                user = users_storage.users[i];
+                break;
+            }
+        }
+        return user;
+    };
+
+    var updateUser = function(user) {
+        this.removeUser(user.email);
+        this.setUser(user);
+    };
+
     var removeUser = function(email){
         var users_storage = this.getLocalStorageUsers();
 
@@ -39,6 +61,9 @@ angular.module('starter.services', [])
 
     return {
         setUser: setUser,
+        getAllUsers: getAllUsers,
+        getUser: getUser,
+        updateUser: updateUser,
         removeUser: removeUser,
         getLocalStorageUsers: getLocalStorageUsers,
         setLocalStorageUsers: setLocalStorageUsers
