@@ -1,4 +1,13 @@
+<div ng-show="newuserForm.name.$error.required && newuserForm.name.$dirty" class="alert alert-danger">
+    Preencha o campo nome 
+</div>
+
+<div ng-show="newuserForm.name.$error.minlength" class="alert alert-danger">
+    O campo nome deve no minimo 5 caracteres
+</div>
+
 <form name="newuserForm" action="" class="form-app">
+
     <div class="box-card-form">
         <div class="box-header">
             <span class="icon-header glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -9,7 +18,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label class="label-form" for="">Nome</label>
-                        <input ng-model="user.name" ng-required="true" type="text" class="form-control" id="" placeholder="Insira o nome do usuário">
+                        <input ng-model="user.name" ng-minlength="4" name="name" ng-required="true" type="text" class="form-control" id="" placeholder="Insira o nome do usuário">
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -90,7 +99,7 @@
 </form>
 
 <div class="form-app">
-    <div class="box-actions">
+    <div class="box-actions" ng-show="user.name">
         <button class="btn btn-danger" ng-click="cancel()">Cancelar</button>
         <button class="btn btn-info" ng-disabled="newuserForm.$invalid" ng-click="saveUser()">Confirmar</button>
         <br>
