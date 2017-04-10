@@ -55,6 +55,7 @@ angular.module('starter.services', [])
             return JSON.parse(window.localStorage.users_storage)
         }   
     }
+    
     var setLocalStorageUsers = function(data){
         window.localStorage.users_storage = JSON.stringify(data); 
     }

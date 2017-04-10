@@ -1,26 +1,20 @@
 // definido os controllers 
 
-app.controller('homeController', function($scope, $location) {
+app.controller('homeController', function($scope) {
     $scope.message = 'tela inicial';
 
-
-    // NÃO SEI ONDE TU VAI FAZER AS OPERAÇÕES CRUD DO USER... VOU FAZR AQUI NA HOME E TU COLOCA ONDE DEVE SER
-
-    // CRIEI UM SERVICE QUE FAZ AS OPERAÇÕES CRUD
     $scope.sendModal = function() {
         $('#modal-sign').modal('hide');
     };
 });
 
 app.controller('loginController', function($scope) {
-
     $scope.message = 'tela de login';
 });
 
-app.controller('instanceController', function($scope) {
-    $scope.message = 'tela de configuracao de instancia';
+app.controller('instanceController', function($scope, $state, $stateParams) {
+    
 });
-
 
 app.controller('usersController', function($state, $scope, UserService, $stateParams) {
 
@@ -52,27 +46,9 @@ app.controller('usersController', function($state, $scope, UserService, $statePa
         UserService.removeUser(email);
         $scope.users = UserService.getAllUsers().users;
     };
-
-
-    // $scope.isUserSeleceted = function(users) {
-    //     return users.some(function(user) {
-    //         return user.selected;
-    //     });
-    // };
-
 });
-
-
-
 
 
 app.controller('menuIncludeController', function($scope) {
     $scope.message = 'tela de configuracao de instancia';
-
-    alert("=====")
-
-    $scope.activeMenu = 'Home';
-    // $scope.doTheBack = function() {
-    //   window.history.back();
-    // };
 });

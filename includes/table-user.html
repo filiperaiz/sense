@@ -1,0 +1,26 @@
+<table ng-show="users.length > 0" class="table table-user">
+    <thead>
+        <tr>
+            <th colspan="2">Usuários</th>
+            <th class="text-center">Tipo</th>
+            <th class="text-center">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="line-user" ng-class="{'selected bold': user.selected}" ng-repeat="user in users | filter:searchUser">
+            <td class="td icon-id">
+                <span class="icon-left glyphicon glyphicon-user"></span>
+            </td>
+            <td class="td name-user">{{user.name}}</td>
+            <td class="td name-type">{{user.type_permition}}</td>
+            <td class="td actions">
+                <a href="/#!/users/edit-user/{{user.email}}" class="link-action">
+                    <span class="icon-left glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+                <a href="" class="link-action" ng-click="deleteUser(user.email)">
+                    <span class="icon-left glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

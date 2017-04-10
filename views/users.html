@@ -1,6 +1,5 @@
 <div ng-include="'includes/header-config.html'"></div>
 
-
 <section class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12">
@@ -41,34 +40,9 @@
 			    	</div>
 
 			    	<div class="box-body">
-			    	
-			    		<table ng-show="users.length > 0" class="table table-user">
-						    <thead>
-						        <tr>
-						            <th colspan="2">Usuários</th>
-						            <th class="text-center">Tipo</th>
-						            <th class="text-center">Ação</th>
-						        </tr>
-						    </thead>
-						    <tbody>
-						        <tr class="line-user" ng-class="{'selected bold': user.selected}" ng-repeat="user in users | filter:searchUser">
-						            <td class="td icon-id">
-						            	<input type="checkbox" ng-model="user.selected">
-						            	<span class="icon-left glyphicon glyphicon-user" aria-hidden="true"></span>
-						            </td>
-						            <td class="td name-user">{{user.name}}</td>
-						            <td class="td name-type" >{{user.type_permition}}</td>
-						            <td class="td actions">
-						            	<a href="/#!/users/edit-user/{{user.email}}" class="link-action">
-						            		<span class="icon-left glyphicon glyphicon-pencil" aria-hidden="true"></span>
-						            	</a>
-						            	<a href="" class="link-action" ng-click="deleteUser(user.email)">
-						            		<span class="icon-left glyphicon glyphicon-trash" aria-hidden="true"></span>
-						            	</a>
-						            </td>
-						        </tr>
-						    </tbody>
-						</table>
+			    			
+			    			<div ng-include="'includes/table-user.html'"></div>
+			    		
 			    	</div>
 			    </div>
 			</div>
@@ -76,9 +50,9 @@
     </div>
 </section>
 
-<!-- 
 
-<div class="container">
+
+<!-- <div class="container">
     valido : {{usersForm.$valid}}<br>
     invalido : {{usersForm.$invalid}}<br>
     
@@ -102,10 +76,21 @@
           <input type="text" name="name" class="form-control" ng-model="user.name" ng-minlength="4" ng-required="true" placeholder="nome">
           
           <br>
+
+
+
           
-          <select class="form-control" name="type" ng-model="user.model" ng-required="true" ng-options=" model.name for model in models">
+          <select class="form-control" name="type" 
+          	ng-model="user.model" 
+          	ng-required="true" 
+          	ng-options=" model.name for model in models">
             <option value="">Selecione um tipo</option>
           </select>
+
+
+
+
+
         </form>
 
         <br>

@@ -30,14 +30,14 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     
     .state('new-user', {
-      url: '/users/new-user',
-      templateUrl: 'views/new-user.html',
+      url: '/users/user-detail',
+      templateUrl: 'views/user-detail.html',
       controller: 'usersController'
     })
 
     .state('edit-user', {
       url: '/users/edit-user/:email',
-      templateUrl: 'views/new-user.html',
+      templateUrl: 'views/user-detail.html',
       controller: 'usersController'
     });
     
