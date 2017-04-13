@@ -1,39 +1,116 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-body,
-a,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ul,
-ol {
-    font-family: 'Roboto', sans-serif !important;
-    text-rendering: optimizeLegibility;
-}
 
-html,
-body {
-    height: 100%;
-}
+// colors
+$red: #EC1C24;
+$red2: #C33300;
+$black: #333333;
+$white: #ffffff;
+$gray: #4A4A4A;
+$orange: #D84717;
+$blue:#26A1D0;
 
-body {
-    background-color: #eeeeee;
-}
+// color indicadores
+$indicador-red: #ff352f;
+$indicador-yellow: #ffcc44;
+$indicador-green: #1fdb6f;
+$indicador-blue: #49c8f8;
+$indicador-gray: #4A4A4A;
 
-$red: #ec1c24;
 
-a:hover {
-    text-decoration: none;
-}
+// radius
+$radius2: 2px;
+$radius3: 3px;
+$radius4: 4px;
+$radius5: 5px;
 
-*:focus {
-    outline: none;
-}
+// opacity
+$opacity5: .5;
+$opacity6: .6;
+$opacity7: .7;
+$opacity8: .8;
+
+// margin top
+$mt-0:  0px;
+$mt-10: 10px;
+$mt-20: 20px;
+$mt-30: 30px;
+$mt-40: 40px;
+$mt-50: 50px;
+
+.mt-0 { margin-top: $mt-0; }
+.mt-10{ margin-top: $mt-10;}
+.mt-20{ margin-top: $mt-20;}
+.mt-30{ margin-top: $mt-30;}
+.mt-40{ margin-top: $mt-40;}
+.mt-50{ margin-top: $mt-50;}
+
+// margin bottom
+$mb-0:  0px;
+$mb-10: 10px;
+$mb-20: 20px;
+$mb-30: 30px;
+$mb-40: 40px;
+$mb-50: 50px;
+
+.mb-0 { margin-bottom: $mb-0; }
+.mb-10{ margin-bottom: $mb-10;}
+.mb-20{ margin-bottom: $mb-20;}
+.mb-30{ margin-bottom: $mb-30;}
+.mb-40{ margin-bottom: $mb-40;}
+.mb-50{ margin-bottom: $mt-50;}
+
+
+
+
+
+
+
+// buttons
+.btn{cursor: pointer;}
+.btn-red{ background: $red; color: $white;}
+.btn-red2{ background: $red2; color: $white;}
+.btn-black{ background: $black; color: $white;}
+.btn-white{ background: $white; color: $black;}
+.btn-gray{ background: $gray; color: $white;}
+.btn-orange{ background: $orange; color: $white;}
+.btn-blue{ background: $blue; color: $white;}
+
+
+.btn-clear-blue{ background: 0 0; color: $blue !important; padding: 0.8rem; box-shadow: none;}
 
 .btn{
-	box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
-	text-transform: uppercase;
+	.icon-left{
+		vertical-align: middle;
+		margin-right: 5px;
+	}
+
+	.icon-right{
+		vertical-align: middle;
+		margin-left: 5px;
+	}
 }
+.btn-full{ width: 100%;}
+
+
+
+
+
+
+
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+
+@mixin box-shadow($args...){
+	-moz-box-shadow: $args;
+	-webkit-box-shadow: $args;
+	box-shadow: $args;
+}
+
+
+

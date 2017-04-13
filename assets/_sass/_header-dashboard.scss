@@ -1,0 +1,52 @@
+.header-dashboard {
+    height: 175px;
+    margin-bottom: 40px;
+    padding-top: 82px;
+    background-color: #212121;
+    @include box-shadow (0 0 4px 0 rgba(0, 0, 0, 0.12), 0 4px 4px 0 rgba(0, 0, 0, 0.24));
+    
+    .title-header {
+        margin-bottom: 10px;
+        .icon-link {
+            font-size: 20px;
+            display: inline-block;
+            color: #fff;
+            vertical-align: middle;
+        }
+        h2 {
+            font-size: 21px;
+            display: inline-block;
+            margin: 0 0 0 20px;
+            color: #fff;
+        }
+    }
+    .nav-header {
+        margin: 0;
+        padding: 0;
+        li {
+            float: left;
+            display: block;
+            width: 120px;
+            text-align: center;
+            .navlink {
+                font-size: 14px;
+                display: block;
+                padding: 15px 20px;
+                text-transform: uppercase;
+                color: $white;
+                opacity: $opacity8;
+                @include transition(all .1s ease);
+                &.active {
+                    @include box-shadow(inset 0 -2px 0 0 $blue);
+                    opacity: 1;
+                }
+                &:hover,
+                &:focus {
+                    @include box-shadow(inset 0 -2px 0 0 $blue);
+                    @include transition(all .1s ease);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

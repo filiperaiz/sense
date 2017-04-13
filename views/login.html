@@ -1,32 +1,34 @@
 <section class="login-section">
+    
     <div class="login-inner">
         <div class="box-login">
             <img src="../assets/img/sense-logo-login.png" alt="">
+            
             <h4>Login</h4>
-
-            <form action="" class="form-login form-app">
-                <div class="form-group">
-                    <label class="label-form" for="inputLogin">Login</label>
-
-                    <div class="input-group-icon">
-                        <span class="icon-left glyphicon glyphicon-user" aria-hidden="true"></span>
-                        <input type="text" class="form-control icon-l" id="inputLogin" placeholder="Login">
+            
+            <div class="form-login">
+                <form name="loginForm">
+                    <div class="form-group">
+                        <label class="label-form" for="inputLogin">Login</label>
+                        <div class="input-group-icon">
+                            <i class="icon-left material-icons prefix">person</i>
+                            <input type="text" ng-model="login.name" ng-required="true" class="form-control icon-l" placeholder="Digite seu login">
+                        </div>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="label-form" for="inputPassword">Senha</label>
-                    <div class="input-group-icon">
-                        <span class="icon-left glyphicon glyphicon-lock" aria-hidden="true"></span>
-                        <input type="password" class="form-control icon-l" id="inputPassword" placeholder="Password">
+                    <div class="form-group">
+                        <label class="label-form">Senha</label>
+                        <div class="input-group-icon">
+                            <i class="icon-left material-icons prefix">vpn_key</i>
+                            <input type="password" ng-model="login.password" ng-required="true" class="form-control icon-l" placeholder="Digite sua senha">
+                        </div>
                     </div>
-                </div>
-                
-                <button type="submit" class="btn btn-orange btn-block btn-lg" ui-sref="instance">ENTRAR</button>
-            </form>
+                </form>
+
+                <button type="submit" ng-click="submit()" ng-disabled="loginForm.$invalid" class="btn btn-orange btn-full">ENTRAR</button>
+            </div>
 
             <div class="forgot-password">
-            	<a href="">Esqueceu sua senha?</a>
+                <a href="">Esqueceu sua senha?</a>
             </div>
         </div>
     </div>

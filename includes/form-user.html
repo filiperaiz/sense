@@ -6,31 +6,31 @@
     O campo nome deve no minimo 5 caracteres
 </div>
 
-<form name="newuserForm" action="" class="form-app">
+<form name="newuserForm"  class="form-app">
 
     <div class="box-card-form">
-        <div class="box-header">
-            <span class="icon-header glyphicon glyphicon-user" aria-hidden="true"></span>
+        <div class="box-header clearfix">
+            <i class="icon-header material-icons">person</i>
             <h2 class="title">Usuário</h2>
         </div>
         <div class="box-body box-form">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="form-group">
-                        <label class="label-form" for="">Nome</label>
+                    <div class="md-form">
                         <input ng-model="user.name" ng-minlength="4" name="name" ng-required="true" type="text" class="form-control" id="" placeholder="Insira o nome do usuário">
+                        <label class="active">Nome da instância</label>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="label-form" for="">Email</label>
+                            <div class="md-form">
                                 <input ng-model="user.email" ng-required="true" type="email" class="form-control" id="" placeholder="Insira o email do usuário">
+                                <label class="active" for="">Email</label>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="label-form" for="">Telefone</label>
+                        <div class="col-md-6">
+                            <div class="md-form">
                                 <input type="tel" ng-required="true" ng-model="user.phone" class="form-control" id="" placeholder="Insira o telefone do usuário">
+                                <label class="active" for="">Telefone</label>
                             </div>
                         </div>
                     </div>
@@ -38,58 +38,60 @@
             </div>
         </div>
     </div>
+
     <div class="box-card-form">
-        <div class="box-header">
-            <span class="icon-header glyphicon glyphicon-user" aria-hidden="true"></span>
+        <div class="box-header clearfix">
+            <i class="icon-header material-icons">person</i>
             <h2 class="title">Perfil</h2>
         </div>
         <div class="box-body box-form">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="label-form" for="">Perfil do usuário</label>
+                    <div class="md-form">
                         <input type="text" ng-model="user.perfil" class="form-control" id="" placeholder="Insira o perfil do usuário">
+                        <label class="active" for="">Perfil do usuário</label>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="form-group">
-                        <label class="label-form" for="">Senha</label>
+                    <div class="md-form">
                         <input type="password" ng-model="user.password" class="form-control" id="" placeholder="Insira sua senha">
+                        <label class="active" for="">Senha</label>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="form-group">
-                        <label class="label-form" for="">Confirmar Senha</label>
+                    <div class="md-form">
                         <input type="password" ng-model="user.password_confirmation" class="form-control" id="" placeholder="Confirme sua senha">
+                        <label class="active" for="">Confirmar Senha</label>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="label-form" for="">Grupos</label>
+                    <div class="md-form">
                         <div class="input-group-icon">
-                            <span class="icon-right glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                        <label class="active" for="">Grupos</label>
                             <select class="form-control select" ng-model="user.group">
-                                <option>Selecione uma opção</option>
-                                <option>Financeiro</option>
+                                <option value="" ng-disabled="true" selected>Selecione uma opção</option>
                                 <option>Administração</option>
+                                <option>Financeiro</option>
+                                <option>Tecnologia</option>
                             </select>
+                            <span class="icon-right glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="label-form" for="">Permissões</label>
+                    <div class="md-form">
                         <div class="input-group-icon">
-                            <span class="icon-right glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                            <select class="form-control select" name="type" ng-model="user.type_permition" ng-required="true">
-                                <option>Selecione uma opção</option>
-                                <option>admin</option>
-                                <option>root</option>
-                                <option>write</option>
-                                <option>read</option>
+                        <label class="active" for="">Permissões</label>
+                            <select class="form-control select" name="type" ng-model="user.type_permission" ng-required="true">
+                                <option value="" ng-disabled="true" selected>Selecione uma opção</option>
+                                <option>Admin</option>
+                                <option>Root</option>
+                                <option>Write</option>
+                                <option>Read</option>
                             </select>
+                            <span class="icon-right glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                         </div>
                     </div>
                 </div>
@@ -98,10 +100,29 @@
     </div>
 </form>
 
-<div class="form-app">
-    <div class="box-actions" ng-show="user.name">
-        <button class="btn btn-danger" ng-click="cancel()">Cancelar</button>
-        <button class="btn btn-info" ng-disabled="newuserForm.$invalid" ng-click="saveUser()">Confirmar</button>
-        <br>
+
+<div class="box-btn_actions text-right" ng-show="user.name">
+    <button class="btn btn-red2" ng-click="cancel()">Cancelar</button>
+    <button class="btn btn-blue" ng-disabled="newuserForm.$invalid" data-toggle="modal" data-target="#modal-confirmUser">Confirmar</button>
+    <br>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade modal-center" id="modal-confirmUser">
+    <div class="modal-dialog" role="document">
+        <div class="modal-infos modal-content">
+            <div class="modal-body">
+                <div class="titles">
+                    <h3>Usuário criado com sucesso!</h3>
+                    <p>Você pode revisar ou editar na lista de usuários</p> 
+                </div>
+                
+
+                <div class="actions">
+                    <button type="button" ng-click="saveUser()" class="btn btn-clear-blue">Entendi</button>   
+                </div>
+            </div>
+        </div>
     </div>
 </div>

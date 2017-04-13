@@ -18,6 +18,14 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'views/login.html',
       controller: 'loginController'
     })
+
+    .state('bandeja', {
+      url: '/bandeja',
+      templateUrl: 'views/bandeja.html',
+      controller: 'bandejaController'
+    })
+
+
     .state('instance', {
       url: '/instance',
       templateUrl: 'views/instance.html',
@@ -29,19 +37,24 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'usersController'
     })
     
+    .state('users-csv', {
+      url: '/users-csv',
+      templateUrl: 'views/users-csv.html',
+      controller: 'usersController'
+    })
+
+
     .state('new-user', {
       url: '/users/user-detail',
       templateUrl: 'views/user-detail.html',
       controller: 'usersController'
     })
 
+
     .state('edit-user', {
       url: '/users/edit-user/:email',
       templateUrl: 'views/user-detail.html',
       controller: 'usersController'
     });
-    
-    // Utilizando o HTML5 History API
-    // $locationProvider.html5Mode(true);
 });
 

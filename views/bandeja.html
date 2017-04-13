@@ -1,0 +1,38 @@
+<div ng-include="'includes/header-dashboard.html'"></div>
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div class="box-header">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-6">
+                        <div class="md-form input-icon mb-0">
+                            <i class="material-icons prefix">search</i>
+                            <input type="text" id="formSearch" ng-model="searchIndicador" class="form-control">
+                            <label for="formSearch">Busque por indicador</label>
+                        </div>
+                    </div>
+                   
+                    <div class="col-xs-6 col-sm-6">
+                        <div class="btn-box text-right">
+                            <button class="btn btn-clear-blue"" ng-click="filterNameAZ = !filterNameAZ">
+                                A a Z
+                                <i class="icon-right material-icons prefix">sort</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body">
+                <!-- bandeja de favoritos -->
+                <div ng-include="'includes/bandeja-favorite.html'"></div>
+
+                <!-- loop de bandejas -->
+                <div ng-include="'includes/bandejas.html'"></div>
+
+                <!-- bandeja com todos os indicadores -->
+                <div ng-include="'includes/bandeja-indicadores.html'"></div>
+            </div>
+            
+        </div>
+    </div>
+</section>

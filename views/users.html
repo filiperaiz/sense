@@ -1,53 +1,45 @@
-<div ng-include="'includes/header-config.html'"></div>
-
+<div ng-include="'includes/header-dashboard.html'"></div>
 <section class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12">
-			<div class="widget-card">
-			    <div class="widget-header">
-			        <h2 class="title">Configurações de Usuários</h2>
-			    </div>
-			    <div class="widget-body">
-			    	<div class="box-header">
-				    	<div class="row">
-				    		<div class="col-xs-4 col-sm-6 form-app">
-				    			<div class="form-group">
-				    				<div class="input-group-icon">
-					    			    <span class="icon-left glyphicon glyphicon-search" aria-hidden="true"></span>
-					    			    <input type="text" ng-model="searchUser" class="form-control icon-l" placeholder="Busque por usuários">
-				    				</div>
-				    			</div>
-				    		</div>
+            <div class="jumbotron widget-card">
+                
+                <div class="widget-header">
+                    <h2 class="title">Configurações de Usuários</h2>
+                </div>
 
-				    		<div class="col-xs-4 col-sm-3">
-				    			<div class="btn-box">
-				    				<a href="" class="btn-links">
-				    					<span class="icon-header glyphicon glyphicon-open" aria-hidden="true"></span>
-				    					carregar csv
-				    				</a>
-				    			</div>
-				    		</div>
+                <div class="widget-body">
+                    <div class="box-header">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6">
+                                <div class="md-form input-icon mb-0">
+                                    <i class="material-icons prefix">search</i>
+                                    <input type="text" id="formSearch" ng-model="searchUser" class="form-control">
+                                    <label for="formSearch">Busque por usuários</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6">
+                                <div class="btn-box">
+                                    
+                                    <label class="btn btn-clear-blue inputfile" ng-click="csv()">
+                                        <i class="icon-left material-icons prefix">file_upload</i>
+                                        carregar arquivos csv
+                                        <input type="file" accept=".csv"/>
+                                    </label>
 
-				    		<div class="col-xs-4 col-sm-3">
-				    			<div class="btn-box">
-				    				<a href="" class="btn-links" ui-sref="new-user">
-				    					<span class="icon-header glyphicon glyphicon-user" aria-hidden="true"></span>
-				    					novo usuário
-				    				</a>
-				    			</div>
-				    		</div>
-				    	</div>
-			    	</div>
-
-			    	<div class="box-body">
-			    			
-			    			<div ng-include="'includes/table-user.html'"></div>
-			    		
-			    	</div>
-			    </div>
-			</div>
+                                    <a class="btn btn-clear-blue inputfile" ui-sref="new-user">
+                                        <i class="icon-left material-icons prefix">person_add</i>
+                                        novo usuário
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div ng-include="'includes/table-user.html'"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-
-

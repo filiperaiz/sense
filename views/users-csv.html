@@ -1,0 +1,61 @@
+<div ng-include="'includes/header-dashboard.html'"></div>
+
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div class="jumbotron widget-card">
+                <div class="widget-header">
+                    <h2 class="title">Importação do arquivo CSV</h2>
+                </div>
+                <div class="widget-body">
+                    <div class="box-header">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-6 form-app">
+                                <div class="count-infos-csv">
+                                    <p class="total-user">Contatos no arquivo:<span>14</span></p>
+                                    <p class="success-user">Importados com sucesso: <span>10</span></p>
+                                    <p class="error-user">Erros encontrados: <span>4</span></p>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6">
+                                <div class="btn-box">
+                                    <label class="btn btn-clear-blue inputfile" ng-click="csv()">
+                                        <i class="icon-left material-icons prefix">file_download</i>
+                                        gerar contatos com erro
+                                        <input type="file" accept=".csv"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div ng-include="'includes/table-user-csv.html'"></div>
+                    </div>
+                    
+                    <div class="box-btn_actions text-right">
+                        <button class="btn btn-red2">Cancelar importação</button>
+                        <button class="btn btn-blue" data-toggle="modal" data-target="#modal-Usercsv">Adicionar usuários</button>
+                        <br>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal-Usercsv">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-infos modal-content">
+                                <div class="modal-body">
+                                    <div class="titles">
+                                        <h3>Usuário criado com sucesso!</h3>
+                                        <p>Você pode revisar ou editar na lista de usuários</p>
+                                    </div>
+                                    <div class="actions">
+                                        <button type="button" ng-click="savecsv()" class="btn btn-link">Entendi</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

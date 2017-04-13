@@ -1,45 +1,148 @@
 <section class="home">
-    <div class="join-us-box">
-	    
-	    <!-- Button trigger modal -->
-	    <a href="" class="join-us-button" data-toggle="modal" data-target="#modal-sign">Join Us</a>
+    <section class="hero-section section-block base-bottom">
+        <section class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-7 col-lg-6">
+                    <div class="hero-infos">
+                        <div class="box-logo">
+                            <h1>
+                            	<a class="logo" href="index.html">Sense</a>
+                            </h1>
+                        </div>
 
-	    <!-- Modal -->
-	    <div class="modal fade" id="modal-sign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	        <div class="modal-dialog" role="document">
-	            <div class="modal-sign modal-content">
-	                
-	                <div class="modal-header">
-	                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	                    	<span aria-hidden="true">&times;</span>
-	                    </button>
-	                    <img class="logo-modal" src="../assets/img/sense-logo-login.png" alt="" class="logo">
-	                </div>
-	                
-	                <div class="modal-body">
-	                	<div class="titles">
-		                    <h4 class="modal-title">Cadastre-se já!</h4>
-		                    <p class="modal-subtitle">E teste nossa versão demo</p>
-	                	</div>
+                        <div class="box-info">
+                            <h2>O que é o sense?</h2>
+                            <h4>O sense é Smart Business Management, amplia a visão do gestor para dar suporte as decisões estratégicas seguras em tempo real.</h4>
+                        </div>
 
-	                	<form action="" class="form-modal">
-	                		<div class="form-group">
-	                		    <input type="text" class="form-control" placeholder="Nome">
-	                		    <input type="email" class="form-control" placeholder="Email">
-	                		    <input type="password" class="form-control" placeholder="Senha">
-	                		 </div>
-	                	</form>
+                        <div class="box-joinus">
+                            <button type="button" data-toggle="modal" data-target="#modal-sign" class="btn btn-outline-primary waves-effect join-us-button">Join Us</button>
+                            <div class="modal fade" id="modal-sign">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-sign modal-content">
+                                        <div class="modal-header">
+                                            <img class="logo-modal" src="../assets/img/sense-logo-login.png" alt="" class="logo">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="titles">
+                                                <h4 class="modal-title">Cadastre-se já!</h4>
+                                                <p class="modal-subtitle">E teste nossa versão demo</p>
+                                            </div>
 
-	                	<div class="actions">
-	                    	<button type="button" class="btn btn-danger close-modal" ng-click="sendModal()" id="close-modal" ui-sref="login">Cadastrar</button>
-	                    	
-	                    	<p class="term"><a href="">Clique aqui</a> e conheça nossos termos de serviços</p>
-	                	</div>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-    	
-    </div>
+                                            <form name="signUpForm" class="form-modal">
+                                                <div class="form-group">
+                                                	<div class="md-form">
+                                                	    <input type="text" class="form-control" ng-required="true" ng-model="sigup.nome" placeholder="Nome">
+                                                	</div>
+
+                                                	<div class="md-form">
+                                                	    <input type="email" class="form-control" ng-required="true" ng-model="sigup.email" placeholder="Email">
+                                                	</div>
+
+                                                	<div class="md-form">
+                                                	    <input type="password" class="form-control" ng-required="true" ng-model="sigup.password" placeholder="Senha">
+                                                	</div>
+                                                </div>
+                                            </form>
+
+                                            <div class="actions">
+                                                <button type="button" ng-disabled="signUpForm.$invalid" class="btn btn-danger btn-shadow" ng-click="sendModal()">Cadastrar</button>
+                                                <p class="term"><a href="">Clique aqui</a> e conheça nossos termos de serviços</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-5 col-lg-6">
+                    <div class="hero-play">
+                    	<div class="play-box">
+	                        <a class="link-play" href="">
+	                       		<i class="material-icons">play_circle_outline</i>
+	                       	</a>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section class="why-sense_section section-block ">
+        <section class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <h2 class="title-section">Porque o Sense é diferente?</h2>
+
+                    <div class="row">
+                    	<div class="col-xs-12 col-sm-3 col-lg-3">
+                    		<div class="item-why">
+                    			<div class="pic"></div>
+                    			<h4 class="title">acessível</h4>
+                    			<p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis id cupiditate esse, impedit eligendi minus voluptatum ut amet assumenda nihil</p>
+                    		</div>
+                    	</div>
+
+                    	<div class="col-xs-12 col-sm-3 col-lg-3">
+                    		<div class="item-why">
+                    			<div class="pic"></div>
+                    			<h4 class="title">intrusivo</h4>
+                    			<p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis id cupiditate esse, impedit eligendi minus voluptatum ut amet assumenda nihil</p>
+                    		</div>
+                    	</div>
+
+                    	<div class="col-xs-12 col-sm-3 col-lg-3">
+                    		<div class="item-why">
+                    			<div class="pic"></div>
+                    			<h4 class="title">tempo real</h4>
+                    			<p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis id cupiditate esse, impedit eligendi minus voluptatum ut amet assumenda nihil</p>
+                    		</div>
+                    	</div>
+
+                    	<div class="col-xs-12 col-sm-3 col-lg-3">
+                    		<div class="item-why">
+                    			<div class="pic"></div>
+                    			<h4 class="title">no seu celular</h4>
+                    			<p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis id cupiditate esse, impedit eligendi minus voluptatum ut amet assumenda nihil</p>
+                    		</div>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section class="infos-section section-block base-top">
+        <section class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                	<h2 class="title-section">Em que o Sense muda a gestão do Negócio</h2>
+
+                	<div class="row">
+                		<div class="col-xs-12 col-sm-6 col-lg-6">
+                			<div class="box-infos">
+                				<h3 class="title">informações <br> entregues de bandeja</h3>
+                				<p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate rem vel placeat nisi modi reiciendis nihil necessitatibus voluptatem velit, impedit. Ea expedita facilis commodi veniam exercitationem in atque officiis similique?</p>
+                			</div>
+                		</div>
+
+                		<div class="col-xs-12 col-sm-6 col-lg-6">
+                			<div class="box-mockup">
+                				<img src="../assets/img/mockup-iphone.png" alt="">
+                			</div>
+                		</div>
+                	</div>
+                </div>
+            </div>
+        </section>
+    </section>
 </section>
 
+<div ng-include="'includes/footer.html'"></div>

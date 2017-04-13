@@ -1,0 +1,25 @@
+<table ng-show="users.length > 0" class="table table-date scroll mt-30">
+    <thead>
+        <tr>
+            <th class="th text-left" colspan="2">Usuários adicionados</th>
+            <th class="th text-left">Email</th>
+            <th class="th text-center">Permissões</th>
+            <th class="th text-center">Ação</th>
+        </tr>
+        <tr class="tr-spacer"></tr>
+    </thead>
+    <tbody>
+        <tr class="row-table" ng-repeat="user in users | filter:searchUser | orderBy: 'name'">
+            <td class="td td-id"><i class="material-icons">person</i></td>
+            <td class="td td-user">{{user.name}}</td>
+            <td class="td td-user">{{user.email}}</td>
+            <td class="td td-type">{{user.type_permission}}</td>
+            <td class="td td-actions">
+                <a href="" class="link-action" ng-click="deleteUser(user.email)">
+                    <i class="material-icons">delete</i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

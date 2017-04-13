@@ -1,24 +1,23 @@
-<table ng-show="users.length > 0" class="table table-user">
+<table ng-show="users.length > 0" class="table table-date mt-30">
     <thead>
         <tr>
-            <th colspan="2">Usuários</th>
-            <th class="text-center">Tipo</th>
-            <th class="text-center">Ação</th>
+            <th class="th text-left" colspan="2">Usuários</th>
+            <th class="th text-center">Tipo</th>
+            <th class="th text-center">Ação</th>
         </tr>
+        <tr class="tr-spacer"></tr>
     </thead>
     <tbody>
-        <tr class="line-user" ng-class="{'selected bold': user.selected}" ng-repeat="user in users | filter:searchUser">
-            <td class="td icon-id">
-                <span class="icon-left glyphicon glyphicon-user"></span>
-            </td>
-            <td class="td name-user">{{user.name}}</td>
-            <td class="td name-type">{{user.permisson.type}}</td>
-            <td class="td actions">
+        <tr class="row-table" ng-repeat="user in users | filter:searchUser | orderBy: 'created_at':true">
+            <td class="td td-id"><i class="material-icons">person</i></td>
+            <td class="td td-user">{{user.name}}</td>
+            <td class="td td-type">{{user.type_permission}}</td>
+            <td class="td td-actions">
                 <a href="/#!/users/edit-user/{{user.email}}" class="link-action">
-                    <span class="icon-left glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    <i class="material-icons">mode_edit</i>
                 </a>
                 <a href="" class="link-action" ng-click="deleteUser(user.email)">
-                    <span class="icon-left glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    <i class="material-icons">delete</i>
                 </a>
             </td>
         </tr>

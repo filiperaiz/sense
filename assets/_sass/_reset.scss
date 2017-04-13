@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
+
+body,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol {
+    font-family: 'Roboto', sans-serif !important;
+    text-rendering: optimizeLegibility;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #eeeeee;
+}
+  
+a:hover {
+    text-decoration: none;
+}
+
+*:focus {
+    outline: none;
+}

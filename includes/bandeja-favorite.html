@@ -1,0 +1,35 @@
+<div class="box-bandeja bandeja-yellow">
+    <div class="bandeja-header clearfix" data-toggle="collapse" data-target="#collapse-favorite">
+        <i class="icon-left material-icons">star</i>
+        <h4 class="title">Favoritos</h4>
+        <div class="icons-arrow">
+            <i class="icon-down material-icons">arrow_drop_down</i>
+            <i class="icon-up material-icons">arrow_drop_up</i>
+        </div>
+    </div>
+    <div class="bandeja-body">
+        <div class="collapse show" id="collapse-favorite">
+           
+            <div class="box-indicadores clearfix">
+                <div class="indicador-block indicador-item indicador-{{indicador.type}}" 
+                    ng-repeat="indicador in indicadores | filter:searchIndicador | orderBy:  !filterNameAZ ? 'name' : '-name'">
+                    <div class="box-name">
+                        <p class="name">{{ indicador.name }}</p>
+                    </div>
+                    <div class="box-favorite">
+                        <i class="material-icons">star_border</i>
+                    </div>
+                    <div class="box-value">
+                        <!-- <h4 class="value">6.543.210</h4> -->
+                        <h4 class="value">{{ indicador.value }}</h4>
+                    </div>
+                    <div class="box-state">
+                        <i class="icon material-icons">today</i>
+                        <span class="type">Diario</span>
+                    </div>
+                    <div class="box-tag"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,116 +1,146 @@
 <form name="instanceForm" class="form-app">
     <div class="box-card-form">
-        <div class="box-header">
-            <span class="icon-header glyphicon glyphicon-cog" aria-hidden="true"></span>
-            <h2 class="title">Instância</h2>
-        </div>
-        <div class="box-body box-form">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="form-group">
-                        <label class="label-form" for="">Nome da instância</label>
-                        <input type="text" ng-model="instance.name" ng-required="true" class="form-control" placeholder="Insira o nome da sua instância (até 80 caracteres)">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="box-header clearfix">
+                    <i class="icon-header material-icons">dashboard</i>
+                    <h2 class="title">Instância</h2>
+                </div>
+                <div class="box-body box-form">
+                    <div class="md-form">
+                        <input placeholder="Insira o nome da sua instância (até 80 caracteres)" ng-model="instance.name" type="text"  class="form-control">
+                        <label class="active">Nome da instância</label>
                     </div>
+
+    
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="label-form" for="">Cidade</label>
+                            <div class="md-form">
                                 <input type="text" ng-model="instance.city" ng-required="true" class="form-control" placeholder="Insira sua cidade">
+                                <label class="active" for="">Cidade</label>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="label-form" for="">Estado</label>
+                            <div class="md-form">
                                 <input type="text" class="form-control" placeholder="Insira seu estado">
+                                <label class="active" for="">Estado</label>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="label-form" for="">País</label>
+                            <div class="md-form">
                                 <input type="text" class="form-control" placeholder="Insira seu País">
+                                <label class="active" for="">País</label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="box-input-file">
-                        <p>Insira aqui a marca de sua empresa nas dimensões: 100x26px</p>
-                        <button type="" class="btn btn-info">Upload</button>
-                    </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="box-input-file">
+                    <p>Insira aqui a marca de sua empresa nas dimensões: 100X26px</p>
+
+                    <label class="btn btn-blue inputfile">
+                        Upload
+                        <input type="file" accept="image/gif, image/jpeg, image/png"/>
+                    </label>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="box-card-form">
-        <div class="box-header">
-            <span class="icon-header glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        <div class="box-header clearfix">
+            <i class="icon-header material-icons">mail_outline</i>
             <h2 class="title">Servidor de Email</h2>
         </div>
         <div class="box-body box-form">
             <div class="row">
-                <div class="col-md-9">
-                    <div class="form-group">
-                        <label class="label-form" for="">Endereço de Email</label>
+                <div class="col-md-8">
+                    <div class="md-form">
                         <input type="text" class="form-control" placeholder="Insira seu email">
+                        <label class="active" for="">Endereço de Email</label>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label class="label-form" for="">Senha</label>
+                <div class="col-md-4">
+                    <div class="md-form">
                         <input type="password" class="form-control" placeholder="Insira sua senha">
+                        <label class="active" for="">Senha</label>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-9">
-                    <div class="form-group">
-                        <label class="label-form" for="">Host</label>
+                <div class="col-md-8">
+                    <div class="md-form">
                         <input type="text" class="form-control" placeholder="Insira o endereço HOST do seu email">
+                        <label class="active" for="">Host</label>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label class="label-form" for="">Porta</label>
+                <div class="col-md-4">
+                    <div class="md-form">
                         <input type="text" class="form-control" placeholder="Insira a porta do seu email">
+                        <label class="active" for="">Porta</label>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="box-card-form">
-        <div class="box-header">
-            <span class="icon-header glyphicon glyphicon-earphone" aria-hidden="true"></span>
+        <div class="box-header clearfix">
+            <i class="icon-header material-icons">phone</i>
             <h2 class="title">Servidor de SMS</h2>
         </div>
         <div class="box-body box-form">
             <div class="row">
-                <div class="col-md-9">
-                    <div class="form-group">
-                        <label class="label-form" for="">Endereço de Serviço</label>
+                <div class="col-md-8">
+                    <div class="md-form">
                         <input type="text" class="form-control" placeholder="Insira o endereço IP do seu serviço SMS">
+                        <label class="active" for="">Endereço de Serviço</label>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-9">
-                    <div class="form-group">
-                        <label class="label-form" for="">Login</label>
+                <div class="col-md-8">
+                    <div class="md-form">
                         <input type="text" class="form-control" placeholder="Insira o login para o serviço de SMS">
+                        <label class="active" for="">Login</label>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label class="label-form" for="">Senha</label>
+                <div class="col-md-4">
+                    <div class="md-form">
                         <input type="password" class="form-control" placeholder="Insira sua senha">
+                        <label class="active" for="">Senha</label>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </form>
-<div class="form-app" ng-show="instance.name">
-    <div class="box-actions">
-        <button type="" class="btn btn-danger">Cancelar</button>
-        <button type="" ng-disabled="instanceForm.$invalid" class="btn btn-info">Confirmar</button>
+
+<div class="box-btn_actions text-right" ng-show="instance.name">
+    <button type="" class="btn btn-red">Cancelar</button>
+    <button type="" class="btn btn-blue" ng-click="saveInstance()" data-toggle="modal" data-target="#modal-confirmInstance">Confirmar</button>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade modal-center" id="modal-confirmInstance">
+    <div class="modal-dialog" role="document">
+        <div class="modal-infos modal-content">
+            <div class="modal-body">
+                <div class="titles">
+                    <h3>Instância configurada com sucesso!</h3>
+                    <p>Sua instância do Sense foi configurada. <br> Adicione novos usuários na aba “Usuários” ou entre em senseceo.com.br/suainstancia para acessa-la agora.</p> 
+                </div>
+
+                <div class="actions">
+                    <button type="button" data-dismiss="modal" class="btn btn-clear-blue">Entendi</button>   
+                </div>
+            </div>
+        </div>
     </div>
 </div>

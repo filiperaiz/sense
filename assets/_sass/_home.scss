@@ -1,0 +1,211 @@
+.home {
+    position: relative;
+    .hero-section {
+        background-image: url(../img/bg-home.jpg);
+        background-size: cover;
+        padding-top: 80px;
+        padding-bottom: 200px;
+        background-attachment: fixed;
+        .box-logo {
+            position: relative;
+            h1 {
+                padding: 0;
+                margin: 0;
+                position: relative;
+            }
+            .logo {
+                display: block;
+                text-indent: -5000px;
+                background: url(../img/sense-logo-login.png) left no-repeat;
+                width: 170px;
+                height: 40px;
+            }
+        }
+        .box-info {
+            margin: 0;
+            background-color: transparent;
+            padding-top: 70px;
+            h2 {
+                color: $white;
+                margin: 0 0 70px 0;
+                font-weight: 100;
+            }
+            h4 {
+                color: $white;
+                margin: 0;
+                font-weight: 100;
+                line-height: 1.7;
+                font-size: 17px;
+            }
+        }
+        .box-joinus {
+            padding-top: 55px;
+            .join-us-button {
+                width: 270px;
+                height: 70px;
+                color: $white !important;
+                border-color: $white;
+                font-weight: 300;
+                font-size: 22px;
+                font-weight: 300;
+                line-height: 27px;
+            }
+        }
+        .hero-play {
+            position: relative;
+            text-align: center;
+            display: table;
+            height: 100%;
+            width: 100%;
+            .play-box {
+                display: table-cell;
+                vertical-align: middle;
+                .link-play {
+                    display: block;
+                    width: 80px;
+                    line-height: 0;
+                    margin: auto;
+                    i {
+                        font-size: 80px;
+                        color: $white;
+                    }
+                }
+            }
+        }
+        .modal-sign {
+            border-radius: $radius5;
+            max-width: 482px;
+            width: 100%;
+            margin: auto;
+            .modal-header {
+                height: 120px;
+                text-align: center;
+                background-image: url(../img/popup-header.png);
+                background-repeat: no-repeat;
+                background-position: top center;
+                background-size: cover;
+                width: 100%;
+                .logo-modal {
+                    margin: 20px auto;
+                }
+            }
+            .modal-body {
+                .titles {
+                    margin: 20px 0 35px 0;
+                    text-align: center;
+                    h4 {
+                        font-size: 32px;
+                        color: $black;
+                        font-weight: 300;
+                    }
+                    p {
+                        font-size: 18px;
+                        color: $gray;
+                        font-weight: 100;
+                    }
+                }
+                .form-modal {
+                    max-width: 402px;
+                    width: 100%;
+                    margin: 0 auto;
+                    .form-control {
+                        border-radius: 5px;
+                        border: 1px solid #979797;
+                        width: 100%;
+                        margin: 0;
+                        text-indent: 15px;
+                    }
+                }
+                .actions {
+                    text-align: center;
+                    max-width: 402px;
+                    width: 100%;
+                    margin: auto;
+                    .btn {
+                        background-color: $red;
+                        width: 100%;
+                        text-transform: capitalize;
+                        font-size: 21px;
+                        border-radius: 5px;
+                        border: 1px solid $red;
+                        margin: 0;
+                    }
+                    .term {
+                        font-size: 13px;
+                        margin: 20px 0 20px;
+                        color: #4a4a4a;
+                        a {
+                            color: $red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .why-sense_section {
+        background-color: $orange;
+        .title-section {
+            font-size: 32px;
+            color: $white;
+            margin: 0 0 80px 0;
+            text-align: center;
+            font-weight: 300;
+        }
+        .item-why {
+            text-align: center;
+            .pic {
+                width: 150px;
+                height: 150px;
+                border-radius: 100px;
+                background-color: $white;
+                margin: 0 auto 30px auto;
+            }
+            .title {
+                color: $white;
+                margin: 0 0 30px 0;
+                font-weight: 100;
+                text-transform: uppercase;
+                font-size: 22px;
+            }
+            .text {
+                color: $white;
+                margin: 0;
+                font-weight: 100;
+            }
+        }
+    }
+    
+    .infos-section {
+        background-color: $white;
+        padding-top: 200px;
+        padding-bottom: 0;
+        .title-section {
+            font-size: 32px;
+            color: $gray;
+            margin: 0 0 80px 0;
+            text-align: center;
+            font-weight: 300;
+        }
+        .box-infos {
+            text-align: left;
+            margin-top: 50px;
+            .title {
+                color: $orange;
+                margin: 0 0 30px 0;
+                font-weight: 100;
+                text-transform: uppercase;
+                font-size: 28px;
+                line-height: 1.4;
+            }
+            .text {
+                color: $gray;
+                margin: 0;
+                font-weight: 100;
+            }
+        }
+        .box-mockup {
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,74 @@
+.login-section {
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    background-image: url(../img/losangos-top.png), url(../img/losangos-bottom.png);
+    background-repeat: repeat-x;
+    background-position: top center, bottom center;
+    .login-inner {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .box-login {
+        width: 100%;
+        max-width: 315px;
+        margin: 0 auto;
+        text-align: center;
+        h4 {
+            margin: 30px 0;
+            text-transform: uppercase;
+            color: $red;
+            font-size: 20px;
+        }
+        .forgot-password {
+            margin-top: 20px;
+            a {
+                color: $red;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.form-login {
+    text-align: left;
+    .form-group {
+        position: relative;
+        margin-bottom: 20px;
+        .input-group-icon {
+            position: relative;
+        }
+        .label-form {
+            font-size: 12px;
+            font-weight: normal;
+            margin-bottom: 0;
+            color: $white;
+        }
+        .form-control {
+            background-color: transparent;
+            font-size: 15px;
+            text-indent: 40px;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            border-bottom: 1px solid $gray;
+            border-radius: 0;
+            box-shadow: none;
+            color: $white;
+            font-weight: 300;
+        }
+        .icon-left {
+            font-size: 25px;
+            position: absolute;
+            top: 3px;
+            left: 0;
+            color: #ffffff;
+            opacity: $opacity5;
+        }
+    }
+    .btn {
+        margin: 30px 0 20px 0;
+    }
+}
