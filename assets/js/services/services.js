@@ -1,7 +1,24 @@
 angular.module('starter.services', [])
 
-.service('UserService', function() {
+
+.factory('indicatorsAPI', function ($http) {
+    // var urlApi = 'https://jsonplaceholder.typicode.com/posts?_limit=0';
+    var urlApi = 'http://198.74.59.20:8080/v1/indicators';
+    var token = 'YWMt3DM0bCOnEeebnhe5XUTCtwAAAVt9l8wWD2FRVq0Ze0Ss3RJfrAxGaGW7C20';
+   
+    console.log(urlApi + "?accessToken=" + token);
     
+    var _getIndicators = function () {
+        return $http.get(urlApi + "?accessToken=" + token);
+    };
+
+    return {
+        getIndicators: _getIndicators
+    }; 
+}) 
+
+.service('UserService', function() {
+
     var setUser = function(user) {
         var users_storage = this.getLocalStorageUsers();
         users_storage.users.push(user);
@@ -16,8 +33,8 @@ angular.module('starter.services', [])
     var getUser = function(email) {
         var users_storage = this.getLocalStorageUsers();
         var user = {};
-        for (var i = 0; i < users_storage.users.length; i++){
-            if(users_storage.users[i].email==email){
+        for (var i = 0; i < users_storage.users.length; i++) {
+            if (users_storage.users[i].email == email) {
                 user = users_storage.users[i];
                 break;
             }
@@ -30,34 +47,34 @@ angular.module('starter.services', [])
         this.setUser(user);
     };
 
-    var removeUser = function(email){
+    var removeUser = function(email) {
         var users_storage = this.getLocalStorageUsers();
 
-        for (var i = 0; i < users_storage.users.length; i++){
-            if(users_storage.users[i].email==email){
+        for (var i = 0; i < users_storage.users.length; i++) {
+            if (users_storage.users[i].email == email) {
                 delete users_storage.users[i];
                 break;
             }
         }
-        var users_storage2 = {users: []};
-        for (var i = 0; i < users_storage.users.length; i++){
-            if(users_storage.users[i] != null){
+        var users_storage2 = { users: [] };
+        for (var i = 0; i < users_storage.users.length; i++) {
+            if (users_storage.users[i] != null) {
                 users_storage2.users.push(users_storage.users[i]);
             }
         }
         this.setLocalStorageUsers(users_storage2);
     };
 
-    var getLocalStorageUsers = function(){
-        if (typeof window.localStorage.users_storage === "undefined"){
-            return {users: []}
-        }else{
+    var getLocalStorageUsers = function() {
+        if (typeof window.localStorage.users_storage === "undefined") {
+            return { users: [] }
+        } else {
             return JSON.parse(window.localStorage.users_storage)
-        }   
+        }
     }
-    
-    var setLocalStorageUsers = function(data){
-        window.localStorage.users_storage = JSON.stringify(data); 
+
+    var setLocalStorageUsers = function(data) {
+        window.localStorage.users_storage = JSON.stringify(data);
     }
 
     return {
@@ -70,3 +87,5 @@ angular.module('starter.services', [])
         setLocalStorageUsers: setLocalStorageUsers
     };
 })
+
+

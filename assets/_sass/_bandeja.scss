@@ -50,7 +50,7 @@
     .bandeja-body {
         .box-indicadores {
             background-color: $white;
-            padding: 1.25rem;
+            padding: 1.25rem 1.25rem 0 1.25rem;
             @include box-shadow (0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12));
             
             .indicador-block {
