@@ -1,4 +1,4 @@
-<div class="box-bandeja bandeja-{{bandeja.type}}" ng-class="bandeja-{{bandeja.type}}" ng-repeat="bandeja in bandejas">
+<div class="box-bandeja"  ng-repeat="bandeja in bandejas">
     <div class="bandeja-header clearfix" data-toggle="collapse" data-target="#collapse-{{bandeja.id}}">
         <i class="icon-left material-icons">content_copy</i>
         <h4 class="title">{{bandeja.name}}</h4>
@@ -7,22 +7,24 @@
             <i class="icon-up material-icons">arrow_drop_up</i>
         </div>
     </div>
+    
     <div class="bandeja-body">
         <div class="collapse" id="collapse-{{bandeja.id}}">
             <div class="box-indicadores clearfix">
                 <div class="indicador-block indicador-item indicador-{{indicador.type}}" ng-repeat="indicador in indicadores | filter:searchIndicador | orderBy:  !filterNameAZ ? 'name' : '-name'">
                     <div class="box-name">
-                        <p class="name">{{ indicador.name }}</p>
+                        <p class="name">{{ indicador.indicator.name }}</p>
                     </div>
                     <div class="box-favorite">
                         <i class="material-icons">star_border</i>
                     </div>
                     <div class="box-value">
-                        <h4 class="value">6.543.210</h4>
+                        <h4 class="value"> {{ indicador.value }} </h4>
+                        
                     </div>
                     <div class="box-state">
-                        <i class="icon material-icons">today</i>
-                        <span class="type">Diario</span>
+                        <i class="icon material-icons">insert_invitation</i>
+                        <span class="type">{{ indicador.window }}</span>
                     </div>
                     <div class="box-tag"></div>
                 </div>

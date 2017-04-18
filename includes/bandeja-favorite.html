@@ -1,4 +1,4 @@
-<div class="box-bandeja bandeja-yellow" ng-show="indicadores.length >= 0">
+<div class="box-bandeja bandeja-yellow">
     <div class="bandeja-header clearfix" data-toggle="collapse" data-target="#collapse-favorite">
         <i class="icon-left material-icons">star</i>
         <h4 class="title">Favoritos</h4>
@@ -12,24 +12,20 @@
         <div class="collapse show" id="collapse-favorite">
 
             <div class="box-indicadores clearfix">
-                <div class="indicador-block indicador-item indicador-{{indicador.type}}" 
-                    ng-repeat="indicador in indicadores | filter:searchIndicador | orderBy:  !filterNameAZ ? 'name' : '-name'">
+                <div class="indicador-block indicador-item indicador-{{indicador.type}}" ng-repeat="indicador in indicadores | filter:searchIndicador | orderBy:  !filterNameAZ ? 'indicator.name' : '-indicator.name'">
                     <div class="box-name">
-                        <p class="name">{{ indicador.alias }}</p>
+                        <p class="name">{{ indicador.indicator.name }}</p>
                     </div>
                     <div class="box-favorite">
                         <i class="material-icons">star_border</i>
                     </div>
                     <div class="box-value">
-                        <h4 class="value" ng-repeat="tag in indicador.tags" >
-                            {{tag.tag}}
-                            
-                        </h4>
+                        <h4 class="value"> {{ indicador.value }} </h4>
                         
                     </div>
                     <div class="box-state">
-                        <i class="icon material-icons">today</i>
-                        <span class="type">Diario</span>
+                        <i class="icon material-icons">insert_invitation</i>
+                        <span class="type">{{ indicador.window }}</span>
                     </div>
                     <div class="box-tag"></div>
                 </div>

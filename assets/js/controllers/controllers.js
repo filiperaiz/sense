@@ -71,7 +71,6 @@ app.controller('usersController', function($state, $scope, UserService, $statePa
 
 app.controller('bandejaController', function($scope, $http, load_indicatorsAPI) {
 
-
     // $scope.indicadores = [
     //     { name: 'A Nome de indicador 1', value: '10', type: 'red' },
     //     { name: 'B Nome de indicador 2', value: '20', type: 'red' },
@@ -86,16 +85,23 @@ app.controller('bandejaController', function($scope, $http, load_indicatorsAPI) 
     //     { id: 'bandeja2', name: 'Bandeja 2', type: 'red' },
     //     { id: 'bandeja3', name: 'Bandeja 3', type: 'yellow' },
     // ];
+    // 
+    
+    $scope.toggle = false;
+    $scope.favorite = false;
 
     var carregarIndicadores = function() {
         load_indicatorsAPI.getIndicators().then(function(response) {
-            $scope.indicadores = response.data;
-            console.log(response.data);
+            $scope.indicadores = response.data.behaviors;
+            $scope.bandejas = response.data.trays;
+            
+            console.log(response.data.behaviors);
+            console.log(response.data.trays);
+
         }, function(err) {
             console.log(err);
         });
     };
-
 
     carregarIndicadores();
 });

@@ -1,23 +1,20 @@
 angular.module('starter.services', [])
 
-
 .factory('load_indicatorsAPI', function ($http) {
-    // var urlApi = 'http://198.74.59.20:8080/v1/indicators';
-    // var token = 'YWMt3DM0bCOnEeebnhe5XUTCtwAAAVt9l8wWD2FRVq0Ze0Ss3RJfrAxGaGW7C20';
-   
-    // console.log(urlApi + "?accessToken=" + token);
-    
+    var urlApi = 'http://198.74.59.20:8080/v1/dashboard';
+    var token = 'YWMtmlajCiRtEeeq7rcQhUYOcgAAAVuCp7lVNCnLY8TxgIx4q9vxzlUarQkTIc4';
 
-    var urlApi = 'http://localhost:3000/entities';
+    console.log(urlApi + "?accessToken=" + token);
     
     var _getIndicators = function () {
-        return $http.get(urlApi);
+        return $http.get(urlApi + "?accessToken=" + token);
     };
 
     return {
         getIndicators: _getIndicators
     }; 
 }) 
+
 
 .service('UserService', function() {
 
