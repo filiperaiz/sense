@@ -1,15 +1,17 @@
 angular.module('starter.services', [])
 
 
-.factory('indicatorsAPI', function ($http) {
-    // var urlApi = 'https://jsonplaceholder.typicode.com/posts?_limit=0';
-    var urlApi = 'http://198.74.59.20:8080/v1/indicators';
-    var token = 'YWMt3DM0bCOnEeebnhe5XUTCtwAAAVt9l8wWD2FRVq0Ze0Ss3RJfrAxGaGW7C20';
+.factory('load_indicatorsAPI', function ($http) {
+    // var urlApi = 'http://198.74.59.20:8080/v1/indicators';
+    // var token = 'YWMt3DM0bCOnEeebnhe5XUTCtwAAAVt9l8wWD2FRVq0Ze0Ss3RJfrAxGaGW7C20';
    
-    console.log(urlApi + "?accessToken=" + token);
+    // console.log(urlApi + "?accessToken=" + token);
+    
+
+    var urlApi = 'http://localhost:3000/entities';
     
     var _getIndicators = function () {
-        return $http.get(urlApi + "?accessToken=" + token);
+        return $http.get(urlApi);
     };
 
     return {

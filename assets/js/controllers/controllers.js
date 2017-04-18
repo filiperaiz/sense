@@ -22,11 +22,9 @@ app.controller('loginController', function($scope, $state) {
     };
 });
 
-app.controller('instanceController', function($scope, $state, $stateParams) {
-});
+app.controller('instanceController', function($scope, $state, $stateParams) {});
 
-app.controller('menuIncludeController', function($scope) {
-});
+app.controller('menuIncludeController', function($scope) {});
 
 app.controller('usersController', function($state, $scope, UserService, $stateParams) {
 
@@ -71,30 +69,17 @@ app.controller('usersController', function($state, $scope, UserService, $statePa
     }
 });
 
-app.controller('bandejaController', function($scope, $http, indicatorsAPI) {
-
-    var carregarIndicadores = function() {
-        indicatorsAPI.getIndicators().then(function(response) {
-            $scope.indicadores = response.data;
-            console.log(response.data);
-        }, function(err) {
-            console.log(err);
-        });
-    };
-
-    var carregarIndicadores = function() {
-        indicatorsAPI.getIndicators().then(function(response) {
-            $scope.indicadores = response.data;
-            console.log(response.data);
-        }, function(err) {
-            console.log(err);
-        });
-    };
+app.controller('bandejaController', function($scope, $http, load_indicatorsAPI) {
 
 
-
-    carregarIndicadores();
-
+    // $scope.indicadores = [
+    //     { name: 'A Nome de indicador 1', value: '10', type: 'red' },
+    //     { name: 'B Nome de indicador 2', value: '20', type: 'red' },
+    //     { name: 'C Nome de indicador 3', value: '30', type: 'yellow' },
+    //     { name: 'D Nome de indicador 4', value: '50', type: 'green' },
+    //     { name: 'E Nome de indicador 5', value: '60', type: 'green' },
+    //     { name: 'F Nome de indicador 6', value: '40', type: 'blue' },
+    // ];
 
     // $scope.bandejas = [
     //     { id: 'bandeja1', name: 'Bandeja 1', type: 'blue' },
@@ -102,12 +87,15 @@ app.controller('bandejaController', function($scope, $http, indicatorsAPI) {
     //     { id: 'bandeja3', name: 'Bandeja 3', type: 'yellow' },
     // ];
 
-    // $scope.indicadores = [
-    //     { name: 'A Nome de indicador 1', value: '20', type: 'blue' },
-    //     { name: 'B Nome de indicador 2', value: '10', type: 'red' },
-    //     { name: 'C Nome de indicador 3', value: '30', type: 'yellow' },
-    //     { name: 'D Nome de indicador 4', value: '50', type: 'green' },
-    //     { name: 'E Nome de indicador 5', value: '60', type: 'green' },
-    //     { name: 'F Nome de indicador 6', value: '40', type: 'blue' },
-    // ];
+    var carregarIndicadores = function() {
+        load_indicatorsAPI.getIndicators().then(function(response) {
+            $scope.indicadores = response.data;
+            console.log(response.data);
+        }, function(err) {
+            console.log(err);
+        });
+    };
+
+
+    carregarIndicadores();
 });
