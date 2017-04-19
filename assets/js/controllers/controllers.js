@@ -71,21 +71,6 @@ app.controller('usersController', function($state, $scope, UserService, $statePa
 
 app.controller('bandejaController', function($scope, $http, load_indicatorsAPI) {
 
-    // $scope.indicadores = [
-    //     { name: 'A Nome de indicador 1', value: '10', type: 'red' },
-    //     { name: 'B Nome de indicador 2', value: '20', type: 'red' },
-    //     { name: 'C Nome de indicador 3', value: '30', type: 'yellow' },
-    //     { name: 'D Nome de indicador 4', value: '50', type: 'green' },
-    //     { name: 'E Nome de indicador 5', value: '60', type: 'green' },
-    //     { name: 'F Nome de indicador 6', value: '40', type: 'blue' },
-    // ];
-
-    // $scope.bandejas = [
-    //     { id: 'bandeja1', name: 'Bandeja 1', type: 'blue' },
-    //     { id: 'bandeja2', name: 'Bandeja 2', type: 'red' },
-    //     { id: 'bandeja3', name: 'Bandeja 3', type: 'yellow' },
-    // ];
-
 
     $scope.color_element = '';
     $scope.toggle = false;
@@ -131,5 +116,21 @@ app.controller('bandejaController', function($scope, $http, load_indicatorsAPI) 
             }
         }
     }
+
+
+     // $scope.indicadores = [
+    //     { name: 'A Nome de indicador 1', value: '10', type: 'red' },
+    //     { name: 'B Nome de indicador 2', value: '20', type: 'red' },
+    //     { name: 'C Nome de indicador 3', value: '30', type: 'yellow' },
+    //     { name: 'D Nome de indicador 4', value: '50', type: 'green' },
+    //     { name: 'E Nome de indicador 5', value: '60', type: 'green' },
+    //     { name: 'F Nome de indicador 6', value: '40', type: 'blue' },
+    // ];
+
+    // $scope.bandejas = [
+    //     { id: 'bandeja1', name: 'Bandeja 1', type: 'blue' },
+    //     { id: 'bandeja2', name: 'Bandeja 2', type: 'red' },
+    //     { id: 'bandeja3', name: 'Bandeja 3', type: 'yellow' },
+    // ];
 
 });

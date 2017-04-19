@@ -10,7 +10,10 @@
     <div class="bandeja-body">
         <div class="collapse" id="collapse-{{bandeja.id}}">
             <div class="box-indicadores clearfix">
-                <div class="indicador-block indicador-item indicador-{{ searchId(ind.id).situation }}" ng-repeat="ind in bandeja.behaviors">
+                <div class="indicador-block indicador-item indicador-{{ searchId(ind.id).situation }}" 
+                    ng-repeat="ind in bandeja.behaviors 
+                    | filter:searchIndicador 
+                    | orderBy:!filterNameAZ ? 'ind.id.indicator.name' : '-ind.id.indicator.name'">
                     <div class="box-name">
                         <p class="name">{{ searchId(ind.id).indicator.name }}</p>
                     </div>

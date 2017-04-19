@@ -152,6 +152,17 @@
             filter: alpha(opacity=0);
         }
     }
+
+    .btn-filter{
+        text-transform: inherit;
+        color: $black !important;
+
+        i{
+            color: $blue !important;
+        }
+    }
+
+
 }
 
 .box-input-file {

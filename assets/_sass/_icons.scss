@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?lpzdgn');
+  src:  url('../fonts/icomoon.eot?lpzdgn#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?lpzdgn') format('truetype'),
+    url('../fonts/icomoon.woff?lpzdgn') format('woff'),
+    url('../fonts/icomoon.svg?lpzdgn#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="senseicon-"], [class*=" senseicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 24px;
+
+  letter-spacing: normal;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+
+}
+
+.senseicon-indicador:before {
+  content: "\e900";
+}
+.senseicon-ANNUAL:before {
+  content: "\e901";
+}
+.senseicon-DAILY:before {
+  content: "\e902";
+}
+.senseicon-MONTHLY:before {
+  content: "\e903";
+}
+.senseicon-key_login:before {
+  content: "\e904";
+}
+.senseicon-az:before {
+  content: "\e905";
+}

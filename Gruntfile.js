@@ -15,6 +15,28 @@ module.exports = function(grunt) {
         // }, // uglify
 
 
+        webfont: {
+            icons: {
+                src: 'assets/img/icon/*.svg',
+                dest: 'assets/fonts',
+                destCss: 'assets/_sass',
+                options: {
+                    engine: 'node',
+                    font: 'senseicon',
+                    hashes: false,
+                    htmlDemo: true,
+                    ligature: false,
+                    stylesheet: 'scss',
+                    template: 'assets/css/senseicon.css',
+                    templateOptions: {
+                        classPrefix: 'senseicon-',
+                        baseClass: 'senseicon'
+                    }
+                }
+            }
+        },
+
+
 
         sass: {
             dist: {
@@ -27,11 +49,11 @@ module.exports = function(grunt) {
 
 
         connect: {
-                 server: {
-                   options: {
-                     port: 9000
-                   }
-                 }
+            server: {
+                options: {
+                    port: 9000
+                }
+            }
         },
 
         watch: {
@@ -54,13 +76,15 @@ module.exports = function(grunt) {
     // Plugins do Grunt
     // grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks( 'grunt-contrib-watch' );
-    grunt.loadNpmTasks( 'grunt-contrib-connect' );
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-webfont');
 
 
     // Tarefas que serão executadas
     grunt.registerTask('default', ['uglify', 'sass']);
-    grunt.registerTask( 'w', [ 'watch' ] );
+    grunt.registerTask('f', ['webfont']);
+    grunt.registerTask('w', ['watch']);
     grunt.registerTask('s', ['connect', 'watch']);
 
 };

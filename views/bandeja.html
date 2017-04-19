@@ -14,16 +14,21 @@
                    
                     <div class="col-xs-6 col-sm-6">
                         <div class="btn-box text-right">
-                            <button class="btn btn-clear-blue"" ng-click="filterNameAZ = !filterNameAZ">
-                                A a Z
-                                <i class="icon-right material-icons prefix">sort</i>
+                            <button class="btn btn-clear-blue btn-filter" 
+                            ng-click="filterNameAZ = !filterNameAZ">
+                                <span ng-show="!filterNameAZ">
+                                    A a Z <i class="icon-right senseicon-az"></i>
+                                </span>
+
+                                <span ng-show="filterNameAZ">
+                                    Z a A <i class="icon-right material-icons">sort</i>
+                                </span>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-           <!--  {{indicadores}}
-           {{bandejas}} -->
+
             <div class="box-body">
                 <!-- bandeja de favoritos -->
                 <div ng-include="'includes/bandeja-favorite.html'"></div>

@@ -1,14 +1,13 @@
 <div class="box-bandeja bandeja-{{color_element}}">
     <div class="bandeja-header clearfix" data-toggle="collapse" data-target="#collapse-indicadores" ng-click="toggle = !toggle">
-        <img class="icon-left" src="../assets/img/icon/ordenar_az_bk.svg" alt="">
-        <i class="icon-left material-icons">perm_device_information</i>
+        <i class="icon-left senseicon-indicador"></i>
         <h4 class="title">Todos os indicadores</h4>
         <div class="icons-arrow">
             <i class="icon-down material-icons" ng-show='!toggle'>arrow_drop_down</i>
             <i class="icon-up material-icons" ng-show='toggle'>arrow_drop_up</i>
         </div>
     </div>
-
+    
     <div class="bandeja-body">
         <div class="collapse" id="collapse-indicadores">
             <div class="box-indicadores clearfix">
@@ -24,7 +23,7 @@
                         <h4 class="value"> {{ indicador.value }} </h4>
                     </div>
                     <div class="box-state">
-                        <i class="icon material-icons">insert_invitation</i>
+                        <i class="icon senseicon-{{ indicador.window }}"></i>
                         <span class="type">{{ indicador.window }}</span>
                     </div>
                     <div class="box-tag"></div>
