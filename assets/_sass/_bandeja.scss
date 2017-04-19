@@ -88,6 +88,7 @@
                     position: absolute;
                     top: 5px;
                     right: 5px;
+                    cursor: pointer;
                     .favorite {
                         color: #ffe384;
                         -webkit-text-stroke: 2px #b5a77b;
@@ -119,7 +120,7 @@
                     transform: rotate(45deg);
                 }
 	            
-	            &.indicador-blue{
+	            &.indicador-UNKNOWN{
 	     			border-color: $indicador-blue;
 		     		
 		     		.box-tag{
@@ -162,7 +163,7 @@
 	// 	}
 	// }
 
-    &.bandeja-blue{
+    &.bandeja-UNKNOWN{
     	.bandeja-header{
     		border-color: $indicador-blue;
     	}

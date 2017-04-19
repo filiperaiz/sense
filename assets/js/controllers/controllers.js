@@ -85,18 +85,20 @@ app.controller('bandejaController', function($scope, $http, load_indicatorsAPI) 
     //     { id: 'bandeja2', name: 'Bandeja 2', type: 'red' },
     //     { id: 'bandeja3', name: 'Bandeja 3', type: 'yellow' },
     // ];
-    // 
-    
+
+
+    $scope.color_element = '';
     $scope.toggle = false;
     $scope.favorite = false;
 
+
     var carregarIndicadores = function() {
         load_indicatorsAPI.getIndicators().then(function(response) {
+
             $scope.indicadores = response.data.behaviors;
             $scope.bandejas = response.data.trays;
-            
-            console.log(response.data.behaviors);
-            console.log(response.data.trays);
+
+            $scope.colorFunction();
 
         }, function(err) {
             console.log(err);
@@ -104,4 +106,30 @@ app.controller('bandejaController', function($scope, $http, load_indicatorsAPI) 
     };
 
     carregarIndicadores();
+
+
+    $scope.searchId = function(id) {
+        for (var i = 0; i < $scope.indicadores.length; i++) {
+            var self = $scope.indicadores[i];
+
+            if (self.id == id.toString()) {
+                return self
+                break;
+            }
+        }
+    }
+
+    $scope.colorFunction = function() {
+        var val_ = $scope.indicadores[0].value;
+
+        $scope.color_element = $scope.indicadores[0].situation;
+
+        for (var i = 0; i < $scope.indicadores.length; i++) {
+            if ($scope.indicadores[i].value > val_) {
+                val_ = $scope.indicadores[i].value;
+                $scope.color_element = $scope.indicadores[i].situation;
+            }
+        }
+    }
+
 });

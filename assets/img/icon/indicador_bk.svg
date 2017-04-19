@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>black/indicador_bk</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Ícones" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="black/indicador_bk" fill="#000000">
+            <path d="M21,15.9850804 L21,5.02983919 C21,3.90878996 20.0950416,3 18.9701608,3 L5.02983919,3 C3.90878996,3 3,3.90495845 3,5.02983919 L3,18.9701608 C3,20.09121 3.90495845,21 5.02983919,21 L15.9850804,21 L19.0018986,21 C20.1054196,21 21,20.1132936 21,19.0018986 L21,15.9850804 Z M15,19 L5.47821211,19 C5.21217132,19 5,18.7875517 5,18.5217879 L5,5.47821211 C5,5.21217132 5.21244832,5 5.47821211,5 L18.5217879,5 C18.7878287,5 19,5.21244832 19,5.47821211 L19,15 L15,19 Z M11,17.3691406 L13,17.3691406 L13,10 L11,10 L11,17.3691406 Z M12,9 C12.55,9 13,8.55 13,8 C13,7.45 12.55,7 12,7 C11.45,7 11,7.45 11,8 C11,8.55 11.45,9 12,9 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

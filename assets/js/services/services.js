@@ -2,7 +2,7 @@ angular.module('starter.services', [])
 
 .factory('load_indicatorsAPI', function ($http) {
     var urlApi = 'http://198.74.59.20:8080/v1/dashboard';
-    var token = 'YWMtmlajCiRtEeeq7rcQhUYOcgAAAVuCp7lVNCnLY8TxgIx4q9vxzlUarQkTIc4';
+    var token = 'YWMtA45tLCUmEeeN8hsJwh3LagAAAVuHYEeqdR2IQ30S777Qc16uTRwaO8OeqxY';
 
     console.log(urlApi + "?accessToken=" + token);
     

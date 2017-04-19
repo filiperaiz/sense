@@ -1,30 +1,29 @@
-<div class="box-bandeja"  ng-repeat="bandeja in bandejas">
-    <div class="bandeja-header clearfix" data-toggle="collapse" data-target="#collapse-{{bandeja.id}}">
+<div class="box-bandeja bandeja-{{color_element}} " ng-repeat="bandeja in bandejas">
+    <div class="bandeja-header clearfix" data-toggle="collapse" data-target="#collapse-{{bandeja.id}}" ng-click="toggle = !toggle">
         <i class="icon-left material-icons">content_copy</i>
         <h4 class="title">{{bandeja.name}}</h4>
         <div class="icons-arrow">
-            <i ng-show="" class="icon-down material-icons">arrow_drop_down</i>
-            <i class="icon-up material-icons">arrow_drop_up</i>
+            <i class="icon-down material-icons" ng-show='!toggle'>arrow_drop_down</i>
+            <i class="icon-up material-icons" ng-show='toggle'>arrow_drop_up</i>
         </div>
     </div>
-    
     <div class="bandeja-body">
         <div class="collapse" id="collapse-{{bandeja.id}}">
             <div class="box-indicadores clearfix">
-                <div class="indicador-block indicador-item indicador-{{indicador.type}}" ng-repeat="indicador in indicadores | filter:searchIndicador | orderBy:  !filterNameAZ ? 'name' : '-name'">
+                <div class="indicador-block indicador-item indicador-{{ searchId(ind.id).situation }}" ng-repeat="ind in bandeja.behaviors">
                     <div class="box-name">
-                        <p class="name">{{ indicador.indicator.name }}</p>
+                        <p class="name">{{ searchId(ind.id).indicator.name }}</p>
                     </div>
-                    <div class="box-favorite">
-                        <i class="material-icons">star_border</i>
+                    <div class="box-favorite" ng-click="favorite = !favorite">
+                        <i class="material-icons" ng-show="!favorite">star_border</i>
+                        <i class="material-icons favorite" ng-show="favorite">star</i>
                     </div>
                     <div class="box-value">
-                        <h4 class="value"> {{ indicador.value }} </h4>
-                        
+                        <h4 class="value"> {{ searchId(ind.id).value }} </h4>
                     </div>
                     <div class="box-state">
                         <i class="icon material-icons">insert_invitation</i>
-                        <span class="type">{{ indicador.window }}</span>
+                        <span class="type">{{ ind.window }}</span>
                     </div>
                     <div class="box-tag"></div>
                 </div>
@@ -32,3 +31,6 @@
         </div>
     </div>
 </div>
+
+
+
