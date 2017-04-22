@@ -1,4 +1,5 @@
-<div class="box-bandeja bandeja-{{color_element}} " ng-repeat="bandeja in bandejas">
+<div class="box-bandeja bandeja-{{situation_maxIndicator}} " ng-repeat="bandeja in bandejas">
+    
     <div class="bandeja-header clearfix" data-toggle="collapse" data-target="#collapse-{{bandeja.id}}" ng-click="toggle = !toggle">
         <i class="icon-left material-icons">content_copy</i>
         <h4 class="title">{{bandeja.name}}</h4>
@@ -10,30 +11,34 @@
     <div class="bandeja-body">
         <div class="collapse" id="collapse-{{bandeja.id}}">
             <div class="box-indicadores clearfix">
-                <div class="indicador-block indicador-item indicador-{{ searchId(ind.id).situation }}" 
-                    ng-repeat="ind in bandeja.behaviors 
-                    | filter:searchIndicador 
-                    | orderBy:!filterNameAZ ? 'ind.id.indicator.name' : '-ind.id.indicator.name'">
+                <div class="indicador-block indicador-item indicador-{{ searchId(indicador.id).situation }}" 
+                    ng-repeat="indicador in bandeja.behaviors 
+                    | filter: searchIndicador
+                    | orderBy:orderIndicatorbyAZ:orderIndicatorbyZA">
+                    
                     <div class="box-name">
-                        <p class="name">{{ searchId(ind.id).indicator.name }}</p>
+                        <p class="name">{{ searchId(indicador.id).indicator.name }}</p>
                     </div>
+
                     <div class="box-favorite" ng-click="favorite = !favorite">
                         <i class="material-icons" ng-show="!favorite">star_border</i>
                         <i class="material-icons favorite" ng-show="favorite">star</i>
                     </div>
+
                     <div class="box-value">
-                        <h4 class="value"> {{ searchId(ind.id).value }} </h4>
+                        <h4 class="value"> {{ searchId(indicador.id).value | currency }} </h4>
                     </div>
+
                     <div class="box-state">
-                        <i class="icon material-icons">insert_invitation</i>
-                        <span class="type">{{ ind.window }}</span>
+                        <i class="icon senseicon-{{ searchId(indicador.id).window | lowercase }}"></i>
+                        <span class="type">{{ searchId(indicador.id).window }}</span>
                     </div>
+
                     <div class="box-tag"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 

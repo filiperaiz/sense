@@ -1,115 +1,144 @@
 {
-    "behaviors": [{
-        "id": "1",
-        "indicator": {
-            "id": "812f4063-0f05-11e7-970e-f23c912c28e6",
-            "name": "Média Exames por consulta - Quantidade"
+    "behaviors": [
+        {
+            "id": "1",
+            "uuid": "1",
+            "indicator": {
+                "id": "812f4063-0f05-11e7-970e-f23c912c28e6",
+                "uuid": "812f4063-0f05-11e7-970e-f23c912c28e6",
+                "name": " A Média Exames por consulta - Quantidade"
+            },
+            "window": "DAILY",
+            "value": 1583,
+            "format": "INTEGER",
+            "situation": "blue"
         },
-        "window": "DAILY",
-        "value": 0,
-        "format": "INTEGER",
-        "situation": "UNKNOWN"
-    }, {
-        "id": "2",
-        "indicator": {
-            "id": "812f4063-0f05-11e7-970e-f23c912c28e6",
-            "name": "Média Exames por consulta - Quantidade"
+        {
+            "id": "2",
+            "uuid": "2",
+            "indicator": {
+                "id": "812f4063-0f05-11e7-970e-f23c912c28e6",
+                "uuid": "812f4063-0f05-11e7-970e-f23c912c28e6",
+                "name": "B Média Exames por consulta - Quantidade"
+            },
+            "window": "MONTHLY",
+            "value": 0,
+            "format": "INTEGER",
+            "situation": "blue"
         },
-        "window": "MONTHLY",
-        "value": 0,
-        "format": "INTEGER",
-        "situation": "UNKNOWN"
-    }, {
-        "id": "3",
-        "indicator": {
-            "id": "812f4063-0f05-11e7-970e-f23c912c28e6",
-            "name": "Média Exames por consulta - Quantidade"
+        {
+            "id": "3",
+            "uuid": "3",
+            "indicator": {
+                "id": "812f4063-0f05-11e7-970e-f23c912c28e6",
+                "uuid": "812f4063-0f05-11e7-970e-f23c912c28e6",
+                "name": "C Média Exames por consulta - Quantidade"
+            },
+            "window": "ANNUAL",
+            "value": 25.16,
+            "format": "INTEGER",
+            "situation": "red"
         },
-        "window": "ANNUAL",
-        "value": 25.16,
-        "format": "INTEGER",
-        "situation": "UNKNOWN"
-    }, {
-        "id": "4",
-        "indicator": {
-            "id": "3dbfa538-efce-11e6-878c-f23c912c28e6",
-            "name": "Valor - exames"
-        },
-        "window": "DAILY",
-        "value": 0,
-        "format": "INTEGER",
-        "situation": "UNKNOWN"
-    }, {
-        "id": "5",
-        "indicator": {
-            "id": "213ff60b-efce-11e6-878c-f23c912c28e6",
-            "name": "Quantidade - exames"
-        },
-        "window": "DAILY",
-        "value": 0,
-        "format": "INTEGER",
-        "situation": "UNKNOWN"
-    }, {
-        "id": "6",
-        "indicator": {
-            "id": "213ff60b-efce-11e6-878c-f23c912c28e6",
-            "name": "Quantidade - exames"
-        },
-        "window": "MONTHLY",
-        "value": 0,
-        "format": "INTEGER",
-        "situation": "UNKNOWN"
-    }, {
-        "id": "7",
-        "indicator": {
-            "id": "213ff60b-efce-11e6-878c-f23c912c28e6",
-            "name": "Quantidade - exames"
-        },
-        "window": "ANNUAL",
-        "value": 1286,
-        "format": "INTEGER",
-        "situation": "UNKNOWN"
-    }],
-
-    "trays": [{
-        "id": "97942ab8-efce-11e6-878c-f23c912c28e6",
-        "uuid": "97942ab8-efce-11e6-878c-f23c912c28e6",
-        "name": "Tray teste",
-        "behaviors": [{
+        {
             "id": "4",
             "uuid": "4",
             "indicator": {
                 "id": "3dbfa538-efce-11e6-878c-f23c912c28e6",
                 "uuid": "3dbfa538-efce-11e6-878c-f23c912c28e6",
-                "name": null
+                "name": "D Valor - exames"
             },
-            "window": "DAILY"
-        }, {
+            "window": "DAILY",
+            "value": 0,
+            "format": "INTEGER",
+            "situation": "green"
+        },
+        {
             "id": "5",
             "uuid": "5",
             "indicator": {
                 "id": "213ff60b-efce-11e6-878c-f23c912c28e6",
                 "uuid": "213ff60b-efce-11e6-878c-f23c912c28e6",
-                "name": null
+                "name": "E Quantidade - exames"
             },
-            "window": "DAILY"
-        }],
-
-        "favorite": false
-    }, {
-        "id": null,
-        "uuid": null,
-        "name": null,
-        "behaviors": [{
+            "window": "DAILY",
+            "value": 0,
+            "format": "INTEGER",
+            "situation": "yellow"
+        },
+        {
+            "id": "6",
+            "uuid": "6",
+            "indicator": {
+                "id": "213ff60b-efce-11e6-878c-f23c912c28e6",
+                "uuid": "213ff60b-efce-11e6-878c-f23c912c28e6",
+                "name": "F Quantidade - exames"
+            },
+            "window": "MONTHLY",
+            "value": 0,
+            "format": "INTEGER",
+            "situation": "UNKNOWN"
+        },
+        {
             "id": "7",
             "uuid": "7",
             "indicator": {
                 "id": "213ff60b-efce-11e6-878c-f23c912c28e6",
                 "uuid": "213ff60b-efce-11e6-878c-f23c912c28e6",
-                "name": null
+                "name": "G Quantidade - exames"
             },
-            "window": "ANNUAL"
-        }],
-        "favorite": true
-    }]
+            "window": "ANNUAL",
+            "value": 1286,
+            "format": "INTEGER",
+            "situation": "green"
+        }
+    ],
+    "trays": [
+        {
+            "id": "97942ab8-efce-11e6-878c-f23c912c28e6",
+            "uuid": "97942ab8-efce-11e6-878c-f23c912c28e6",
+            "name": "Tray teste",
+            "behaviors": [
+                {
+                    "id": "4",
+                    "uuid": "4",
+                    "indicator": {
+                        "id": "3dbfa538-efce-11e6-878c-f23c912c28e6",
+                        "uuid": "3dbfa538-efce-11e6-878c-f23c912c28e6",
+                        "name": null
+                    },
+                    "window": "DAILY"
+                },
+                {
+                    "id": "5",
+                    "uuid": "5",
+                    "indicator": {
+                        "id": "213ff60b-efce-11e6-878c-f23c912c28e6",
+                        "uuid": "213ff60b-efce-11e6-878c-f23c912c28e6",
+                        "name": null
+                    },
+                    "window": "DAILY"
+                }
+            ],
+            "favorite": false
+        },
+        {
+            "id": null,
+            "uuid": null,
+            "name": null,
+            "behaviors": [
+                {
+                    "id": "7",
+                    "uuid": "7",
+                    "indicator": {
+                        "id": "213ff60b-efce-11e6-878c-f23c912c28e6",
+                        "uuid": "213ff60b-efce-11e6-878c-f23c912c28e6",
+                        "name": null
+                    },
+                    "window": "ANNUAL"
+                }
+            ],
+            "favorite": true
+        }
+    ],
+    "dateRequest": "1492704412409"
 }

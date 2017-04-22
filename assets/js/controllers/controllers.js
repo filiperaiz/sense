@@ -22,7 +22,7 @@ app.controller('loginController', function($scope, $state) {
     };
 });
 
-app.controller('instanceController', function($scope, $state, $stateParams) {});
+app.controller('instanceController', function($scope, $state) {});
 
 app.controller('menuIncludeController', function($scope) {});
 
@@ -69,21 +69,37 @@ app.controller('usersController', function($state, $scope, UserService, $statePa
     }
 });
 
-app.controller('bandejaController', function($scope, $http, load_indicatorsAPI) {
+app.controller('bandejaController', function($scope, $stateParams, $http, load_indicatorsAPI) {
 
 
-    $scope.color_element = '';
+    // $scope.favs = []
+
+    // $scope.pushItems = function pushItems(items) {
+    //     $scope.favs.push(angular.copy(items));
+    // }
+
+
+
+    $scope.situation_maxIndicator = '';
     $scope.toggle = false;
     $scope.favorite = false;
 
 
+
+    // Ordenar indicadores nas bandejas
+    $scope.orderIndicator = function(field) {
+        $scope.orderIndicatorbyAZ = field;
+        $scope.orderIndicatorbyZA = !$scope.orderIndicatorbyZA;
+    };
+
+    // Carregar json com os indicadores e bandejas
     var carregarIndicadores = function() {
         load_indicatorsAPI.getIndicators().then(function(response) {
 
             $scope.indicadores = response.data.behaviors;
             $scope.bandejas = response.data.trays;
 
-            $scope.colorFunction();
+            $scope.traySituation();
 
         }, function(err) {
             console.log(err);
@@ -98,39 +114,61 @@ app.controller('bandejaController', function($scope, $http, load_indicatorsAPI) 
             var self = $scope.indicadores[i];
 
             if (self.id == id.toString()) {
+                // console.log(self);
                 return self
                 break;
             }
         }
+
     }
 
-    $scope.colorFunction = function() {
+    $scope.traySituation = function() {
         var val_ = $scope.indicadores[0].value;
 
-        $scope.color_element = $scope.indicadores[0].situation;
+        $scope.situation_maxIndicator = $scope.indicadores[0].situation;
 
         for (var i = 0; i < $scope.indicadores.length; i++) {
             if ($scope.indicadores[i].value > val_) {
                 val_ = $scope.indicadores[i].value;
-                $scope.color_element = $scope.indicadores[i].situation;
+                $scope.situation_maxIndicator = $scope.indicadores[i].situation;
             }
         }
     }
 
+    $scope.isFavorite = function(id) {
+        var fav = $scope.favoritos;
+        for (var i = 0; i < fav.length; i++) {
+            if (fav[i].id == id.toString()) {
+                console.log("teste:", fav);
+                return true;
+            }
+        }
+        return false;
+    }
 
-     // $scope.indicadores = [
-    //     { name: 'A Nome de indicador 1', value: '10', type: 'red' },
-    //     { name: 'B Nome de indicador 2', value: '20', type: 'red' },
-    //     { name: 'C Nome de indicador 3', value: '30', type: 'yellow' },
-    //     { name: 'D Nome de indicador 4', value: '50', type: 'green' },
-    //     { name: 'E Nome de indicador 5', value: '60', type: 'green' },
-    //     { name: 'F Nome de indicador 6', value: '40', type: 'blue' },
-    // ];
 
-    // $scope.bandejas = [
-    //     { id: 'bandeja1', name: 'Bandeja 1', type: 'blue' },
-    //     { id: 'bandeja2', name: 'Bandeja 2', type: 'red' },
-    //     { id: 'bandeja3', name: 'Bandeja 3', type: 'yellow' },
-    // ];
+    $scope.favoritos = []
 
+
+    $scope.toggleFavorite = function(id) {
+        var fav = $scope.favoritos;
+        // if already a favorite, uncheck/remove
+        if ($scope.isFavorite(id)) {
+            for (var i = 0; i < fav.length; i++) {
+                
+                if (fav[i].id === id.toString()) {
+                    console.log("teste:", fav);
+                    return fav
+                    // fav.splice(i, 1);
+                    // unless the item exists more than once, break the loop
+                    break;
+                }
+            }
+        }
+        // otherwise add the item
+        else {
+            var newfav = { id: id };
+            fav.push(newfav)
+        }
+    }
 });

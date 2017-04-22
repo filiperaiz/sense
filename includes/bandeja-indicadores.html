@@ -1,4 +1,4 @@
-<div class="box-bandeja bandeja-{{color_element}}">
+<div class="box-bandeja bandeja-{{situation_maxIndicator}}">
     <div class="bandeja-header clearfix" data-toggle="collapse" data-target="#collapse-indicadores" ng-click="toggle = !toggle">
         <i class="icon-left senseicon-indicador"></i>
         <h4 class="title">Todos os indicadores</h4>
@@ -11,19 +11,24 @@
     <div class="bandeja-body">
         <div class="collapse" id="collapse-indicadores">
             <div class="box-indicadores clearfix">
-                <div class="indicador-block indicador-item indicador-{{indicador.situation}}" ng-repeat="indicador in indicadores | filter:searchIndicador | orderBy:  !filterNameAZ ? 'indicator.name' : '-indicator.name'">
+
+                <div class="indicador-block indicador-item indicador-{{indicador.situation}}" 
+                    ng-repeat="indicador in indicadores 
+                    | filter: searchIndicador
+                    | orderBy: orderIndicatorbyAZ:orderIndicatorbyZA">
+
                     <div class="box-name">
                         <p class="name">{{ indicador.indicator.name }}</p>
                     </div>
-                    <div class="box-favorite" ng-click="favorite = !favorite">
+                    <div class="box-favorite" ng-click="pushItems(indicador)" ng-click="favorite = !favorite">
                         <i class="material-icons" ng-show="!favorite">star_border</i>
                         <i class="material-icons favorite" ng-show="favorite">star</i>
                     </div>
                     <div class="box-value">
-                        <h4 class="value"> {{ indicador.value }} </h4>
+                        <h4 class="value">{{ indicador.value | currency}} </h4>
                     </div>
                     <div class="box-state">
-                        <i class="icon senseicon-{{ indicador.window }}"></i>
+                        <i class="icon senseicon-{{ indicador.window | lowercase}}"></i>
                         <span class="type">{{ indicador.window }}</span>
                     </div>
                     <div class="box-tag"></div>

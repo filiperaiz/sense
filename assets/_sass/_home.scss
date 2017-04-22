@@ -3,9 +3,15 @@
     .hero-section {
         background-image: url(../img/bg-home.jpg);
         background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         padding-top: 80px;
         padding-bottom: 200px;
         background-attachment: fixed;
+        // position: fixed;
+        // height: 650px;
+        // top: 0;
+        // width: 100%;
         .box-logo {
             position: relative;
             h1 {
@@ -49,6 +55,8 @@
                 font-size: 22px;
                 font-weight: 300;
                 line-height: 27px;
+                margin: 0;
+
             }
         }
         .hero-play {
@@ -74,6 +82,7 @@
         }
         .modal-sign {
             border-radius: $radius5;
+            z-index:100;
             max-width: 482px;
             width: 100%;
             margin: auto;

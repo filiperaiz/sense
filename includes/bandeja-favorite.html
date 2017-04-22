@@ -1,4 +1,4 @@
-<div class="box-bandeja bandeja-yellow">
+<div class="box-bandeja bandeja-{{situation_maxIndicator}}" ng-show="favs.length > 0">
     <div class="bandeja-header clearfix" data-toggle="collapse" data-target="#collapse-favorite" ng-click="toggle = !toggle">
         <i class="icon-left material-icons">star</i>
         <h4 class="title">Favoritos</h4>
@@ -10,23 +10,23 @@
 
     <div class="bandeja-body">
         <div class="collapse" id="collapse-favorite">
-
             <div class="box-indicadores clearfix">
-                <div class="indicador-block indicador-item indicador-{{indicador.type}}" ng-repeat="indicador in indicadores | filter:searchIndicador | orderBy:  !filterNameAZ ? 'indicator.name' : '-indicator.name'">
+                <div class="indicador-block indicador-item indicador-{{fav.situation}}" 
+                ng-repeat="fav in favs| filter: searchIndicador 
+                | orderBy: orderIndicatorbyAZ:orderIndicatorbyZA">
                     <div class="box-name">
-                        <p class="name">{{ indicador.indicator.name }}</p>
+                        <p class="name">{{ fav.indicator.name }}</p>
                     </div>
                     <div class="box-favorite" ng-click="favorite = !favorite">
                         <i class="material-icons" ng-show="!favorite">star_border</i>
                         <i class="material-icons favorite" ng-show="favorite">star</i>
                     </div>
                     <div class="box-value">
-                        <h4 class="value"> {{ indicador.value }} </h4>
-                        
+                        <h4 class="value">R$ {{ fav.value | number : 2}}</h4>
                     </div>
                     <div class="box-state">
-                        <i class="icon material-icons">insert_invitation</i>
-                        <span class="type">{{ indicador.window }}</span>
+                        <i class="icon senseicon-{{ fav.window | lowercase }}"></i>
+                        <span class="type">{{ fav.window }}</span>
                     </div>
                     <div class="box-tag"></div>
                 </div>

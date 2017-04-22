@@ -11,7 +11,7 @@
             float: left;
             display: block;
             color: $black;
-            opacity: $opacity8;
+            opacity: $opacity7;
             line-height: 22px;
             ;
         }
@@ -20,7 +20,7 @@
             float: left;
             display: block;
             margin: 0 15px;
-            font-weight: 500;
+            font-weight: 400;
             line-height: 24px;
         }
         .icons-arrow {
@@ -65,7 +65,7 @@
                     vertical-align: middle;
                     text-align: center;
                     .value {
-                        font-size: 32px;
+                        font-size: 28px;
                         line-height: 32px;
                         margin: 0;
                         color: $black;
@@ -99,8 +99,9 @@
                     bottom: 5px;
                     left: 5px;
                     .icon {
+                        font-size: 22px;
+                        vertical-align: sub;
                         line-height: 0;
-                        vertical-align: middle;
                         color: $black;
                         opacity: $opacity8;
                     }
@@ -120,7 +121,7 @@
                     transform: rotate(45deg);
                 }
 	            
-	            &.indicador-UNKNOWN{
+	            &.indicador-blue{
 	     			border-color: $indicador-blue;
 		     		
 		     		.box-tag{
@@ -159,7 +160,7 @@
     }
 
 
-    &.bandeja-UNKNOWN{
+    &.bandeja-blue{
     	.bandeja-header{
     		border-color: $indicador-blue;
     	}

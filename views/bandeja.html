@@ -1,45 +1,74 @@
 <div ng-include="'includes/header-dashboard.html'"></div>
 <section class="container">
+     <div class="row">
+        <div class="col-xs-6 col-sm-6 callout">
+            <p>Lista</p>
+            
+            <ul class="list-group">
+                <li  class="list-group-item" ng-repeat="indicador in indicadores ">
+                    <p>{{ indicador.id }}</p>
+                    <p>{{ indicador.indicator.name }}</p>
+                    <div class="favorite" ng-click="toggleFavorite(indicador.id)" ng-class="{'active': isFavorite(indicador.id)}">
+                        <i class="material-icons">star</i>
+                    </div>
+                </li>
+            </ul>
+
+            
+
+        </div>
+
+        <div class="col-xs-6 col-sm-6 panel">
+            <p>favoritos</p>
+            <ul class="list-group">
+                <li  class="list-group-item" ng-repeat="favorito in favoritos track by $index">
+
+                    <p>{{favorito.id}}</p>
+                    <p>{{favorito.indicator.name}}</p>
+
+                    <div class="favorite" ng-click="toggleFavorite(favorito.id)" ng-class="{'active': isFavorite(favorito.id)}">
+                        <i class="material-icons">star</i>
+                    </div>
+                </li>
+            </ul>
+            <hr>
+            {{favoritos}}
+        </div>
+    </div>
+
+</section>
+<section class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12">
             <div class="box-header">
                 <div class="row">
                     <div class="col-xs-4 col-sm-6">
                         <div class="md-form input-icon mb-0">
-                            <i class="material-icons prefix">search</i>
+                            <i class="material-icons search prefix">search</i>
                             <input type="text" id="formSearch" ng-model="searchIndicador" class="form-control">
                             <label for="formSearch">Busque por indicador</label>
                         </div>
                     </div>
-                   
                     <div class="col-xs-6 col-sm-6">
                         <div class="btn-box text-right">
-                            <button class="btn btn-clear-blue btn-filter" 
-                            ng-click="filterNameAZ = !filterNameAZ">
-                                <span ng-show="!filterNameAZ">
-                                    A a Z <i class="icon-right senseicon-az"></i>
-                                </span>
-
-                                <span ng-show="filterNameAZ">
-                                    Z a A <i class="icon-right material-icons">sort</i>
-                                </span>
+                            <button class="btn btn-clear-blue btn-filter" ng-click="orderIndicator('name')">
+                                A a Z <i class="icon-right senseicon-az"></i>
+                            </button>
+                            <button class="btn btn-clear-blue btn-filter" ng-click="orderIndicator('value')">
+                                Valor <i class="icon-right material-icons">sort</i>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="box-body">
                 <!-- bandeja de favoritos -->
                 <div ng-include="'includes/bandeja-favorite.html'"></div>
-
                 <!-- loop de bandejas -->
                 <div ng-include="'includes/bandejas.html'"></div>
-
                 <!-- bandeja com todos os indicadores -->
                 <div ng-include="'includes/bandeja-indicadores.html'"></div>
             </div>
-            
         </div>
     </div>
 </section>
