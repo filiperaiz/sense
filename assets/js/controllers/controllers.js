@@ -152,11 +152,13 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
 
 
 
-    $scope.favoritos = []
+    //$scope.favoritos = []
 
+    /*
     $scope.pushItems = function pushItems(items) {
         $scope.favoritos.push(angular.copy(items));
     }
+    */
 
     $scope.isFavorite = function(id) {
         for(var k=0;k<$scope.bandejas.length;k++){
@@ -170,6 +172,7 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
                 }
             }
         }
+        console.log($scope.bandejas)
     }
 
     /*

@@ -23,9 +23,9 @@
                                 
                             </div>
                             <!-- <div class="box-favorite" ng-click="favorite = !favorite"> -->
-                            <div class="box-favorite" ng-click="isFavorite(indicador.id)" ng-class="active')}">
-                                <i class="material-icons" ng-show="{{ !indicador.favorite }}">star_border</i>
-                                <i class="material-icons favorite" ng-show="{{ indicador.favorite }}">star</i>
+                            <div class="box-favorite" ng-click="isFavorite(indicador.id)" ng-class="active">
+                                <i class="material-icons" ng-show="!indicador.favorite">star_border</i>
+                                <i class="material-icons favorite" ng-show="indicador.favorite">star</i>
                             </div>
                             <div class="box-value">
                                 <h4 class="value">{{ indicador.value | currency}}</h4>

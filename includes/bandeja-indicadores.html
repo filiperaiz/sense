@@ -20,10 +20,10 @@
                         <div class="box-name">
                             <p class="name">{{ indicador.indicator.name }}</p>
                         </div>
-                        <div class="box-favorite" ng-click="pushItems(indicador)">
+                        <div class="box-favorite">
                         <!-- <div class="box-favorite" ng-click="toggleFavorite(indicador.id)" ng-class="{'active': isFavorite(indicador.id)}"> -->
-                            <i class="material-icons" ng-show="{{ indicador.favorite }}">star_border</i>
-                            <i class="material-icons favorite" ng-show="{{ !indicador.favorite }}">star</i>
+                            <i class="material-icons" ng-show="indicador.favorite">star_border</i>
+                            <i class="material-icons favorite" ng-show="!indicador.favorite">star</i>
                         </div>
 
                         <div class="box-value">
