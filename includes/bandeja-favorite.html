@@ -1,4 +1,4 @@
-<div class="box-bandeja bandeja-{{situation_maxIndicator}}" ng-show="favoritos.length > 0">
+<div class="box-bandeja bandeja-{{situation_maxIndicator}}">
     <div class="bandeja-header clearfix" data-toggle="collapse" data-target="#collapse-favorite" ng-click="toggle = !toggle">
         <i class="icon-left material-icons">star</i>
         <h4 class="title">Favoritos</h4>
@@ -11,29 +11,37 @@
     <div class="bandeja-body">
         <div class="collapse" id="collapse-favorite">
             <div class="box-indicadores clearfix">
-                <div class="indicador-block" ng-repeat="favorito in favoritos | filter: searchIndicador | orderBy: orderIndicatorbyAZ:orderIndicatorbyZA track by $index">
+                
+                <div ng-repeat="bandeja in bandejas">
                     
-                    <div class="indicador-item indicador-{{favorito.situation}}" >
-                        <div class="box-name">
-                            <p class="name">{{ favorito.indicator.name }}</p>
-                            
-                        </div>
-                        <!-- <div class="box-favorite" ng-click="favorite = !favorite"> -->
-                        <div class="box-favorite" ng-click="toggleFavorite(favorito.id)" ng-class="{'active': isFavorite(favorito.id)}">
-                            <i class="material-icons" ng-show="!favorite">star_border</i>
-                            <i class="material-icons favorite" ng-show="favorite">star</i>
-                        </div>
-                        <div class="box-value">
-                            <h4 class="value">{{ favorito.value | currency}}</h4>
-                        </div>
-                        <div class="box-state">
-                            <i class="icon senseicon-{{ favorito.window | lowercase }}"></i>
-                            <span class="type">{{ favorito.window }}</span>
-                        </div>
-                        <div class="box-tag"></div>
+                    <div class="indicador-block" ng-if="indicador.indicator.favorite" ng-repeat="indicador in bandeja.behaviors | filter: searchIndicador | orderBy: orderIndicatorbyAZ:orderIndicatorbyZA track by $index">
+
+                        
+                        <div class="indicador-item indicador-{{favorito.situation}}" >
+                            <div class="box-name">
+                                <p class="name">{{ indicador.indicator.name }}</p>
+                                
+                            </div>
+                            <!-- <div class="box-favorite" ng-click="favorite = !favorite"> -->
+                            <div class="box-favorite" ng-click="toggleFavorite('{{indicador.indicator.id}}')" ng-class="{'active': isFavorite('{{indicador.indicator.id}}')}">
+                                <i class="material-icons" ng-show="!favorite">star_border</i>
+                                <i class="material-icons favorite" ng-show="favorite">star</i>
+                            </div>
+                            <div class="box-value">
+                                <h4 class="value">{{ indicador.value | currency}}</h4>
+                            </div>
+                            <div class="box-state">
+                                <i class="icon senseicon-{{ favorito.window | lowercase }}"></i>
+                                <span class="type">{{ indicador.window }}</span>
+                            </div>
+                            <div class="box-tag"></div>
+                        </div>    
                     </div>
-                    
+
                 </div>
+
+
+
             </div>
         </div>
     </div>

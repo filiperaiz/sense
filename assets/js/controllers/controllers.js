@@ -87,9 +87,10 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
     var carregarIndicadores = function() {
         load_indicatorsAPI.getIndicators().then(function(response) {
 
-            $scope.indicadores = response.data.behaviors;
-            $scope.bandejas = response.data.trays;
+            //$scope.indicadores = response.data.behaviors;
+            //$scope.bandejas = response.data.trays;
 
+            $scope.bandejas = $scope.formatJsonTray(response.data.behaviors, response.data.trays);
             $scope.traySituation();
 
         }, function(err) {
@@ -100,6 +101,7 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
     carregarIndicadores();
 
 
+    /*
     $scope.searchId = function(id) {
         for (var i = 0; i < $scope.indicadores.length; i++) {
             var self = $scope.indicadores[i];
@@ -112,18 +114,40 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
         }
 
     }
+    */
 
+    
     $scope.traySituation = function() {
-        var val_ = $scope.indicadores[0].value;
-
-        $scope.situation_maxIndicator = $scope.indicadores[0].situation;
-
-        for (var i = 0; i < $scope.indicadores.length; i++) {
-            if ($scope.indicadores[i].value > val_) {
-                val_ = $scope.indicadores[i].value;
-                $scope.situation_maxIndicator = $scope.indicadores[i].situation;
+        var val_ = 0;
+        for(var k=0;k<$scope.bandejas.length;k++){
+            for(var i=0; i<$scope.bandejas[k].behaviors.length; i++){
+                if ($scope.bandejas[k].behaviors[i].value > val_) {
+                    val_ = $scope.bandejas[k].behaviors[i].value;
+                    $scope.situation_maxIndicator = $scope.bandejas[k].behaviors[i].situation;
+                }
             }
         }
+    }
+    
+
+    $scope.formatJsonTray = function(behaviorsJson, traysJson){
+        for(var k=0;k<traysJson.length;k++){
+            for(var i=0; i<traysJson[k].behaviors.length; i++){
+                id = traysJson[k].behaviors[i].id;
+
+                for(var j= 0; j<behaviorsJson.length; j++){
+                    if (id==behaviorsJson[j].id){
+                        traysJson[k].behaviors[i].indicator.favorite    = false;
+                        traysJson[k].behaviors[i].indicator.name        = behaviorsJson[j].indicator.name;
+                        traysJson[k].behaviors[i].value                 = behaviorsJson[j].value;
+                        traysJson[k].behaviors[i].format                = behaviorsJson[j].format;
+                        traysJson[k].behaviors[i].situation             = behaviorsJson[j].situation;
+                        break;
+                    }
+                }
+            }
+        }
+        return traysJson;
     }
 
 
@@ -135,13 +159,17 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
     }
 
     $scope.isFavorite = function(id) {
-        var fav = $scope.favoritos;
-        for (var i = 0; i < fav.length; i++) {
-            if (fav[i].id == id) {
-                return true;
+        for(var k=0;k<$scope.bandejas.length;k++){
+            for(var i=0; i<$scope.bandejas[k].behaviors.length; i++){
+                if (id==$scope.bandejas[k].behaviors[i].indicador.id){
+                    if($scope.bandejas[k].behaviors[i].indicador.favorite){
+                        $scope.bandejas[k].behaviors[i].indicador.favorite    = false;    
+                    }else{
+                        $scope.bandejas[k].behaviors[i].indicador.favorite    = true;
+                    }                        
+                }
             }
         }
-        return false;
     }
 
     $scope.toggleFavorite = function(id) {
