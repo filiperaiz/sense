@@ -87,10 +87,16 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
     var carregarIndicadores = function() {
         load_indicatorsAPI.getIndicators().then(function(response) {
 
-            //$scope.indicadores = response.data.behaviors;
             //$scope.bandejas = response.data.trays;
 
-            $scope.bandejas = $scope.formatJsonTray(response.data.behaviors, response.data.trays);
+            $scope.indicadores  = response.data.behaviors;
+                
+            for(var i=0;i<$scope.indicadores.length;i++){
+                $scope.indicadores.favorite = false;
+            }
+
+            $scope.bandejas     = $scope.formatJsonTray(response.data.behaviors, response.data.trays);
+            
             $scope.traySituation();
 
         }, function(err) {
@@ -99,22 +105,6 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
     };
 
     carregarIndicadores();
-
-
-    /*
-    $scope.searchId = function(id) {
-        for (var i = 0; i < $scope.indicadores.length; i++) {
-            var self = $scope.indicadores[i];
-
-            if (self.id == id.toString()) {
-                // console.log(self);
-                return self
-                break;
-            }
-        }
-
-    }
-    */
 
     
     $scope.traySituation = function() {
@@ -137,11 +127,7 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
 
                 for(var j= 0; j<behaviorsJson.length; j++){
                     if (id==behaviorsJson[j].id){
-                        traysJson[k].behaviors[i].favorite              = false;
-                        traysJson[k].behaviors[i].indicator.name        = behaviorsJson[j].indicator.name;
-                        traysJson[k].behaviors[i].value                 = behaviorsJson[j].value;
-                        traysJson[k].behaviors[i].format                = behaviorsJson[j].format;
-                        traysJson[k].behaviors[i].situation             = behaviorsJson[j].situation;
+                        traysJson[k].behaviors[i] = behaviorsJson[j];
                         break;
                     }
                 }
@@ -151,48 +137,17 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
     }
 
 
-
-    //$scope.favoritos = []
-
-    /*
-    $scope.pushItems = function pushItems(items) {
-        $scope.favoritos.push(angular.copy(items));
-    }
-    */
-
     $scope.isFavorite = function(id) {
-        for(var k=0;k<$scope.bandejas.length;k++){
-            for(var i=0; i<$scope.bandejas[k].behaviors.length; i++){
-                if (id==$scope.bandejas[k].behaviors[i].id){
-                    if($scope.bandejas[k].behaviors[i].favorite){
-                        $scope.bandejas[k].behaviors[i].favorite    = false;    
-                    }else{
-                        $scope.bandejas[k].behaviors[i].favorite    = true;
-                    }                        
-                }
+        for(var i=0; i<$scope.indicadores.length; i++){
+            if (id==$scope.indicadores[i].id){
+                if($scope.indicadores[i].favorite){
+                    $scope.indicadores[i].favorite    = false;    
+                }else{
+                    $scope.indicadores[i].favorite    = true;
+                }                        
             }
         }
-        console.log($scope.bandejas)
+        $scope.formatJsonTray($scope.indicadores, $scope.bandejas)
     }
 
-    /*
-    $scope.toggleFavorite = function(id) {
-        var fav = $scope.favoritos;
-        // if already a favorite, uncheck/remove
-        if ($scope.isFavorite(id)) {
-            for (var i = 0; i < fav.length; i++) {
-                if (fav[i].id === id) {
-                    fav.splice(i, 1);
-                    // unless the item exists more than once, break the loop
-                    break;
-                }
-            }
-        }
-        // otherwise add the item
-        else {
-            var newfav = { id: id };
-            fav.push(newfav)
-        }
-    }
-    */
 });

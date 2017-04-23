@@ -12,16 +12,15 @@
         <div class="collapse" id="collapse-indicadores">
             <div class="box-indicadores clearfix">
 
-            <div ng-repeat="bandeja in bandejas">
-                <div class="indicador-block" ng-repeat="indicador in bandeja.behaviors | filter: searchIndicador | orderBy: orderIndicatorbyAZ:orderIndicatorbyZA"> 
+
+                <div class="indicador-block" ng-repeat="indicador in indicadores | filter: searchIndicador | orderBy: orderIndicatorbyAZ:orderIndicatorbyZA"> 
                     
                     <div class="indicador-item indicador-{{indicador.situation}}">
 
                         <div class="box-name">
                             <p class="name">{{ indicador.indicator.name }}</p>
                         </div>
-                        <div class="box-favorite">
-                        <!-- <div class="box-favorite" ng-click="toggleFavorite(indicador.id)" ng-class="{'active': isFavorite(indicador.id)}"> -->
+                        <div class="box-favorite" ng-click="isFavorite(indicador.id)" ng-class="active">
                             <i class="material-icons" ng-show="indicador.favorite">star_border</i>
                             <i class="material-icons favorite" ng-show="!indicador.favorite">star</i>
                         </div>
@@ -37,7 +36,7 @@
                     </div>
 
                 </div>
-            </div>
+            
 
 
 
