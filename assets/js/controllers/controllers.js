@@ -71,15 +71,6 @@ app.controller('usersController', function($state, $scope, UserService, $statePa
 
 app.controller('bandejaController', function($scope, $stateParams, $http, load_indicatorsAPI) {
 
-
-    // $scope.favs = []
-
-    // $scope.pushItems = function pushItems(items) {
-    //     $scope.favs.push(angular.copy(items));
-    // }
-
-
-
     $scope.situation_maxIndicator = '';
     $scope.toggle = false;
     $scope.favorite = false;
@@ -135,31 +126,31 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
         }
     }
 
+
+
+    $scope.favoritos = []
+
+    $scope.pushItems = function pushItems(items) {
+        $scope.favoritos.push(angular.copy(items));
+    }
+
     $scope.isFavorite = function(id) {
         var fav = $scope.favoritos;
         for (var i = 0; i < fav.length; i++) {
-            if (fav[i].id == id.toString()) {
-                console.log("teste:", fav);
+            if (fav[i].id == id) {
                 return true;
             }
         }
         return false;
     }
 
-
-    $scope.favoritos = []
-
-
     $scope.toggleFavorite = function(id) {
         var fav = $scope.favoritos;
         // if already a favorite, uncheck/remove
         if ($scope.isFavorite(id)) {
             for (var i = 0; i < fav.length; i++) {
-                
-                if (fav[i].id === id.toString()) {
-                    console.log("teste:", fav);
-                    return fav
-                    // fav.splice(i, 1);
+                if (fav[i].id === id) {
+                    fav.splice(i, 1);
                     // unless the item exists more than once, break the loop
                     break;
                 }

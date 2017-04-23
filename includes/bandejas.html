@@ -11,30 +11,35 @@
     <div class="bandeja-body">
         <div class="collapse" id="collapse-{{bandeja.id}}">
             <div class="box-indicadores clearfix">
-                <div class="indicador-block indicador-item indicador-{{ searchId(indicador.id).situation }}" 
-                    ng-repeat="indicador in bandeja.behaviors 
-                    | filter: searchIndicador
-                    | orderBy:orderIndicatorbyAZ:orderIndicatorbyZA">
+                <div class="indicador-block" ng-repeat="indicador in bandeja.behaviors | filter: searchIndicador | orderBy:orderIndicatorbyAZ:orderIndicatorbyZA">
+                    <div class="indicador-item indicador-{{ searchId(indicador.id).situation }}">
+                        
+                        <div class="box-name">
+                            <p class="name">{{ searchId(indicador.id).indicator.name }}</p>
+                        </div>
+
+                       <!--  <div class="box-favorite" ng-click="favorite = !favorite">
+                            <i class="material-icons" ng-show="!favorite">star_border</i>
+                            <i class="material-icons favorite" ng-show="favorite">star</i>
+                        </div> -->
+
+                        <div class="box-favorite" ng-click="toggleFavorite(indicador.id)" ng-class="{'active': isFavorite(indicador.id)}">
+                            <i class="material-icons" ng-show="isFavorite">star_border</i>
+                            <i class="material-icons favorite" ng-show="!isFavorite">star</i>
+                        </div>
+
+                        <div class="box-value">
+                            <h4 class="value"> {{ searchId(indicador.id).value | currency }} </h4>
+                        </div>
+
+                        <div class="box-state">
+                            <i class="icon senseicon-{{ searchId(indicador.id).window | lowercase }}"></i>
+                            <span class="type">{{ searchId(indicador.id).window }}</span>
+                        </div>
+
+                        <div class="box-tag"></div>
+                    </div>
                     
-                    <div class="box-name">
-                        <p class="name">{{ searchId(indicador.id).indicator.name }}</p>
-                    </div>
-
-                    <div class="box-favorite" ng-click="favorite = !favorite">
-                        <i class="material-icons" ng-show="!favorite">star_border</i>
-                        <i class="material-icons favorite" ng-show="favorite">star</i>
-                    </div>
-
-                    <div class="box-value">
-                        <h4 class="value"> {{ searchId(indicador.id).value | currency }} </h4>
-                    </div>
-
-                    <div class="box-state">
-                        <i class="icon senseicon-{{ searchId(indicador.id).window | lowercase }}"></i>
-                        <span class="type">{{ searchId(indicador.id).window }}</span>
-                    </div>
-
-                    <div class="box-tag"></div>
                 </div>
             </div>
         </div>

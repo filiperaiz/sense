@@ -41,118 +41,122 @@
             
             .indicador-block {
                 position: relative;
-                background-color: $white;
-                border: 1px solid $gray;
-                overflow: hidden;
                 width: 176px;
                 height: 176px;
                 float: left;
-                display: table;
                 margin-bottom: 18px;
                 margin-right: 18px;
-                padding: 5px;
-                word-break: break-all;
-                @include box-shadow (0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24));
-                border-radius: $radius2;
+                overflow: hidden;
+                
                 &:nth-child(5n) {
                     margin-right: 0px;
                 }
+                .indicador-item {
+                    display: table;
+                    width: 100%;
+                    height: 100%;
+                    padding: 5px;
+                    border-radius: $radius2;
+                    background-color: $white;
+                    border: 1px solid $gray;
+                    overflow: hidden;
+                    word-break: break-all;
+                    @include box-shadow (0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24));
+                    .box-value {
+                        display: table-cell;
+                        vertical-align: middle;
+                        text-align: center;
+                        .value {
+                            font-size: 28px;
+                            line-height: 32px;
+                            margin: 0;
+                            color: $black;
+                            font-weight: 400;
+                        }
+                    }
+                    .box-name {
+                        position: absolute;
+                        top: 5px;
+                        left: 5px;
+                        width: 115px;
+                        .name {
+                            font-size: 16px;
+                            color: $gray;
+                            line-height: 20px;
+                            margin: 0;
+                        }
+                    }
+                    .box-favorite {
+                        position: absolute;
+                        top: 5px;
+                        right: 5px;
+                        cursor: pointer;
+                        .favorite {
+                            color: #ffe384;
+                            -webkit-text-stroke: 2px #b5a77b;
+                        }
+                    }
+                    .box-state {
+                        position: absolute;
+                        bottom: 5px;
+                        left: 5px;
+                        .icon {
+                            font-size: 22px;
+                            vertical-align: sub;
+                            line-height: 0;
+                            color: $black;
+                            opacity: $opacity8;
+                        }
+                        .type {
+                            font-size: 12px;
+                            line-height: 16px;
+                            $color: $gray;
+                        }
+                    }
+                    .box-tag {
+                        position: absolute;
+                        bottom: -20px;
+                        right: -20px;
+                        background-color: $gray;
+                        width: 40px;
+                        height: 40px;
+                        transform: rotate(45deg);
+                    }
+    	            
+    	            &.indicador-blue{
+    	     			border-color: $indicador-blue;
+    		     		
+    		     		.box-tag{
+    		     			background-color: $indicador-blue;
+    		     		}	
+    	            }
+
+    	            &.indicador-red{
+    	     			border-color: $indicador-red;
+    		     		
+    		     		.box-tag{
+    		     			background-color: $indicador-red;
+    		     		}	
+    	            }
+
+    	            &.indicador-yellow{
+    	     			border-color: $indicador-yellow;
+    		     		
+    		     		.box-tag{
+    		     			background-color: $indicador-yellow;
+    		     		}	
+    	            }
+
+    	            &.indicador-green{
+    	     			border-color: $indicador-green;
+    		     		
+    		     		.box-tag{
+    		     			background-color: $indicador-green;
+    		     		}	
+    	            }
+                }
             }
             
-            .indicador-item {
-                .box-value {
-                    display: table-cell;
-                    vertical-align: middle;
-                    text-align: center;
-                    .value {
-                        font-size: 28px;
-                        line-height: 32px;
-                        margin: 0;
-                        color: $black;
-                        font-weight: 400;
-                    }
-                }
-                .box-name {
-                    position: absolute;
-                    top: 5px;
-                    left: 5px;
-                    width: 115px;
-                    .name {
-                        font-size: 16px;
-                        color: $gray;
-                        line-height: 20px;
-                        margin: 0;
-                    }
-                }
-                .box-favorite {
-                    position: absolute;
-                    top: 5px;
-                    right: 5px;
-                    cursor: pointer;
-                    .favorite {
-                        color: #ffe384;
-                        -webkit-text-stroke: 2px #b5a77b;
-                    }
-                }
-                .box-state {
-                    position: absolute;
-                    bottom: 5px;
-                    left: 5px;
-                    .icon {
-                        font-size: 22px;
-                        vertical-align: sub;
-                        line-height: 0;
-                        color: $black;
-                        opacity: $opacity8;
-                    }
-                    .type {
-                        font-size: 12px;
-                        line-height: 16px;
-                        $color: $gray;
-                    }
-                }
-                .box-tag {
-                    position: absolute;
-                    bottom: -20px;
-                    right: -20px;
-                    background-color: $gray;
-                    width: 40px;
-                    height: 40px;
-                    transform: rotate(45deg);
-                }
-	            
-	            &.indicador-blue{
-	     			border-color: $indicador-blue;
-		     		
-		     		.box-tag{
-		     			background-color: $indicador-blue;
-		     		}	
-	            }
-
-	            &.indicador-red{
-	     			border-color: $indicador-red;
-		     		
-		     		.box-tag{
-		     			background-color: $indicador-red;
-		     		}	
-	            }
-
-	            &.indicador-yellow{
-	     			border-color: $indicador-yellow;
-		     		
-		     		.box-tag{
-		     			background-color: $indicador-yellow;
-		     		}	
-	            }
-
-	            &.indicador-green{
-	     			border-color: $indicador-green;
-		     		
-		     		.box-tag{
-		     			background-color: $indicador-green;
-		     		}	
-	            }
-            }
 
 
 
