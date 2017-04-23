@@ -137,7 +137,7 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
 
                 for(var j= 0; j<behaviorsJson.length; j++){
                     if (id==behaviorsJson[j].id){
-                        traysJson[k].behaviors[i].indicator.favorite    = false;
+                        traysJson[k].behaviors[i].favorite              = false;
                         traysJson[k].behaviors[i].indicator.name        = behaviorsJson[j].indicator.name;
                         traysJson[k].behaviors[i].value                 = behaviorsJson[j].value;
                         traysJson[k].behaviors[i].format                = behaviorsJson[j].format;
@@ -161,17 +161,18 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
     $scope.isFavorite = function(id) {
         for(var k=0;k<$scope.bandejas.length;k++){
             for(var i=0; i<$scope.bandejas[k].behaviors.length; i++){
-                if (id==$scope.bandejas[k].behaviors[i].indicador.id){
-                    if($scope.bandejas[k].behaviors[i].indicador.favorite){
-                        $scope.bandejas[k].behaviors[i].indicador.favorite    = false;    
+                if (id==$scope.bandejas[k].behaviors[i].id){
+                    if($scope.bandejas[k].behaviors[i].favorite){
+                        $scope.bandejas[k].behaviors[i].favorite    = false;    
                     }else{
-                        $scope.bandejas[k].behaviors[i].indicador.favorite    = true;
+                        $scope.bandejas[k].behaviors[i].favorite    = true;
                     }                        
                 }
             }
         }
     }
 
+    /*
     $scope.toggleFavorite = function(id) {
         var fav = $scope.favoritos;
         // if already a favorite, uncheck/remove
@@ -190,4 +191,5 @@ app.controller('bandejaController', function($scope, $stateParams, $http, load_i
             fav.push(newfav)
         }
     }
+    */
 });

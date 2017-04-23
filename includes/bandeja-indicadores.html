@@ -22,8 +22,8 @@
                         </div>
                         <div class="box-favorite" ng-click="pushItems(indicador)">
                         <!-- <div class="box-favorite" ng-click="toggleFavorite(indicador.id)" ng-class="{'active': isFavorite(indicador.id)}"> -->
-                            <i class="material-icons" ng-show="isFavorite">star_border</i>
-                            <i class="material-icons favorite" ng-show="!isFavorite">star</i>
+                            <i class="material-icons" ng-show="{{ indicador.favorite }}">star_border</i>
+                            <i class="material-icons favorite" ng-show="{{ !indicador.favorite }}">star</i>
                         </div>
 
                         <div class="box-value">

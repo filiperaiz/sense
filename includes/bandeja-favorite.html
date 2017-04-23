@@ -14,7 +14,7 @@
                 
                 <div ng-repeat="bandeja in bandejas">
                     
-                    <div class="indicador-block" ng-if="indicador.indicator.favorite" ng-repeat="indicador in bandeja.behaviors | filter: searchIndicador | orderBy: orderIndicatorbyAZ:orderIndicatorbyZA track by $index">
+                    <div class="indicador-block" ng-if="indicador.favorite" ng-repeat="indicador in bandeja.behaviors | filter: searchIndicador | orderBy: orderIndicatorbyAZ:orderIndicatorbyZA track by $index">
 
                         
                         <div class="indicador-item indicador-{{favorito.situation}}" >
@@ -23,9 +23,9 @@
                                 
                             </div>
                             <!-- <div class="box-favorite" ng-click="favorite = !favorite"> -->
-                            <div class="box-favorite" ng-click="toggleFavorite('{{indicador.indicator.id}}')" ng-class="{'active': isFavorite('{{indicador.indicator.id}}')}">
-                                <i class="material-icons" ng-show="!favorite">star_border</i>
-                                <i class="material-icons favorite" ng-show="favorite">star</i>
+                            <div class="box-favorite" ng-click="isFavorite(indicador.id)" ng-class="active')}">
+                                <i class="material-icons" ng-show="{{ !indicador.favorite }}">star_border</i>
+                                <i class="material-icons favorite" ng-show="{{ indicador.favorite }}">star</i>
                             </div>
                             <div class="box-value">
                                 <h4 class="value">{{ indicador.value | currency}}</h4>
